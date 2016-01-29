@@ -1,0 +1,272 @@
+/*
+ * Copyright (C) 2008-2016 Andrea Di Pasquale <spikey.it@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE AUTHOR OR HIS RELATIVES BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF MIND, USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+ * THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * $ArpON: style.css,v 3.0-ng 01/29/2016 17:57:44 spikey Exp $
+ */
+
+/*
+ * Design by Free CSS Templates (http://www.freecsstemplates.org).
+ * Released for free under a Creative Commons Attribution 2.5 License.
+ */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF url(img/background.gif) repeat-x;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #737373;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+input, textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: #000000;
+}
+
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+p, ul, ol {
+    margin-bottom: 1.0em;
+    line-height: 120%;
+}
+
+ul, ol {
+}
+
+blockquote {
+}
+
+a {
+    text-decoration: none;
+    color: orange;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+hr {
+    display: none;
+}
+
+#menu {
+    width: 960px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0px 0;
+    background: no-repeat center top;
+    font-size: 15px;
+}
+
+#menu ul {
+    height: 45px;
+    margin: 0;
+    padding: 0;
+    background: url(img/black.gif) no-repeat;
+    list-style: none;
+}
+
+#menu li {
+    float: left;
+    height: 45px;
+    background: url(img/black.gif) no-repeat right top;
+}
+
+#menu a {
+    float: left;
+    height: 20px;
+    margin: 0px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: smaller;
+    font-weight: bold;
+    color: #000000;
+}
+
+#menu a:hover {
+    background: url(img/orange.gif) repeat-x;
+    color: #FFFFFF;
+    height: 45px;
+}
+
+#menu .current_page_item a {
+    height: 45px;
+    color: orange;
+}
+
+#menu .current_page_item a:hover {
+    height: 45px;
+    color: #FFFFFF;
+    background: no-repeat center top;
+}
+
+#splash {
+    width: 960px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+
+#logo {
+    width: 960px;
+    height: 68px;
+    margin: 0 auto;
+    color: #414141;
+}
+
+#logo2 {
+    width: 960px;
+    height: 48px;
+    margin: 0 auto;
+    color: #414141;
+}
+
+#logo h1, #logo h2 {
+    margin: 0;
+    padding: 0 20px;
+}
+
+#logo h1 {
+    float: left;
+    padding-top: 30px;
+    letter-spacing: -1px;
+    font-size: 2em;
+}
+
+#logo h2 {
+    float: right;
+    padding-top: 49px;
+    letter-spacing: 0px;
+    font-size: 1em;
+}
+
+#logo a {
+    text-decoration: none;
+    color: #414141;
+}
+
+#page {
+    width: 960px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+#content {
+    float: right;
+    width: 960px;
+}
+
+#shell {
+    background:#737373;
+    width:auto;
+    border-radius: 8px;
+    padding:.4em .6em;
+    color:white;
+    margin-right: 39px;
+}
+
+.post {
+    padding-bottom: 20px;
+}
+
+.post .title {
+    margin: 0;
+    padding: 5px 20px;
+    letter-spacing: -1px;
+    border-bottom: 1px dashed #B9B9B9;
+    font-size: 24px;
+}
+
+.post .title a {
+    text-decoration: none;
+}
+
+.post .entry {
+
+}
+
+.post .meta {
+    height: 20px;
+    background: #F5F5F5;
+    border-top: 1px solid #E9E9E9;
+    text-decoration: none;
+    font-size: smaller;
+}
+
+.post .posted {
+    float: left;
+    height: 16px;
+    padding: 5px 20px;
+}
+
+.post .permalink, .post .comments {
+    float: right;
+    height: 16px;
+    padding: 3px 20px;
+}
+
+.post .permalink {
+}
+
+#footer {
+    clear: both;
+    width: 960px;
+    height: 20px;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-top: 6px solid #3F3F3F;
+    font-size: smaller;
+}
+
+#footer p {
+    margin: 0;
+    text-align: center;
+    line-height: normal;
+}
+
+/*
+ * EOF
+ *
+ * vim:ts=4:expandtab
+ */

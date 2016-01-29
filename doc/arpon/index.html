@@ -1,0 +1,2051 @@
+<!--
+  Copyright (C) 2008-2016 Andrea Di Pasquale <spikey.it@gmail.com>
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+
+  2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+
+  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE AUTHOR OR HIS RELATIVES BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  SERVICES; LOSS OF MIND, USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+  THE POSSIBILITY OF SUCH DAMAGE.
+
+  $ArpON: index.html,v 3.0-ng 01/29/2016 18:09:54 spikey Exp $
+-->
+
+<!--
+    Design by Free CSS Templates (http://www.freecsstemplates.org).
+    Released for free under a Creative Commons Attribution 2.5 License.
+
+    Original design by:
+
+    Name        : Collaboration
+    Description : A two-column, fixed-width design suitable for small websites and blogs.
+    Version     : 1.0
+    Released    : 20080102
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ArpON :: Documentation</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="ArpON 'ARP handler inspection' documentation" />
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li class="current_page_item"><a name="TOP"><font color="orange">DOCUMENTATION</font></a></li>
+        <li><a href="https://sourceforge.net/projects/arpon/files/arpon/" target="_blank"><font color="white">DOWNLOAD</a></font></li>
+        <li><a href="http://sourceforge.net/p/arpon/code/ci/master/tree/" target="_blank"><font color="white">DEVELOPMENT</a></font></li>
+        <li><a href="http://sourceforge.net/p/arpon/bugs/" target="_blank"><font color="white">BUGS</a></font></li>
+    </ul>
+</div>
+<div id="logo">
+    <h2><font color="#737373">Documentation</font></h2>
+</div>
+<div id="splash" align="center">
+    <img src="img/logo.jpg" />
+</div>
+<div id="logo2"></div>
+<hr />
+<div id="page">
+    <div id="content">
+        <div class="post">
+            <h2 class="title">Index</h2>
+            <div class="entry" align="justify">
+                <p>
+                <ol>
+                <li><a href="index.html#1">Important notice</a></li>
+                <li><a href="index.html#2">What is ArpON?</a></li>
+                <li><a href="index.html#3">Features</a></li>
+                <li><a href="index.html#4">Supported Operating Systems</a></li>
+                <li><a href="index.html#5">Required software and libraries</a></li>
+                <li><a href="index.html#6">Stable release via the HTTP mirror</a></li>
+                <li><a href="index.html#7">Version</a></li>
+                <li><a href="index.html#8">Changelog</a></li>
+                <li><a href="index.html#9">Building and installation</a></li>
+                <li><a href="index.html#10">Upgrade</a></li>
+                <li><a href="index.html#11">Quick start</a></li>
+                <li><a href="index.html#12">ArpON daemon</a></li>
+                <li><a href="index.html#13">Important note</a></li>
+                <li><a href="index.html#14">Options summary</a></li>
+                <li><a href="index.html#15">Files</a></li>
+                <li><a href="index.html#16">Examples</a></li>
+                <li><a href="index.html#17">How to use ArpON</a></li>
+                <li><a href="index.html#18">Uninstallation</a></li>
+                <li><a href="index.html#19">Support the development</a></li>
+                <li><a href="index.html#20">Development release via the GIT repository</a></li>
+                <li><a href="index.html#21">Activity diagrams</a></li>
+                <li><a href="index.html#22">Compile time bugs</a></li>
+                <li><a href="index.html#23">Runtime bugs</a></li>
+                <li><a href="index.html#24">Support the project</a></li>
+                <li><a href="index.html#25">Author</a></li>
+                <li><a href="index.html#26">Copyright and licensing</a></li>
+                <li><a href="index.html#27">Thanks</a></li>
+                <li><a href="index.html#28">Reference website</a></li>
+                <li><a href="index.html#29">Notes</a></li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="1"><font color="#737373">1. Important notice</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                Since ArpON 3.0-ng (next generation), ArpON has been <b>rewritten from scratch</b>, therefore all the old versions of ArpON (lower of 3.0-ng) are deprecated. Please <b>upgrade</b> all installations of ArpON and <b>read carefully</b> this <a href="index.html#11">documentation</a> and the <a href="index.html#11">man page</a> specified below of ArpON.
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="2"><font color="#737373">2. What is ArpON?</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                <b>ArpON</b> (<b>ARP handler inspection</b>) is a Host-based solution that make the <a href="index.html#29">ARP standardized protocol</a> secure in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing attack.
+                <br><br>
+                This is possible using three kinds of anti ARP spoofing techniques:
+                <br>
+
+                <ol>
+                <li>
+                <b><a href="index.html#14">SARPI</a></b> (<b><a href="index.html#14">Static ARP Inspection</a></b>) for the statically configured networks without DHCP;
+                </li>
+
+                <li>
+                <b><a href="index.html#14">DARPI</a></b> (<b><a href="index.html#14">Dynamic ARP Inspection</a></b>) for the dynamically configured networks with DHCP;
+                </li>
+
+                <li>
+                <b><a href="index.html#14">HARPI</a></b> (<b><a href="index.html#14">Hybrid ARP Inspection</a></b>) for the statically and dynamically configured networks with DHCP.
+                </li>
+                </ol>
+                The <b>goal</b> of ArpON is therefore to provide a secure and efficient <a href="index.html#12">network daemon</a> that provides the <a href="index.html#14">SARPI</a>, <a href="index.html#14">DARPI</a> and <a href="index.html#14">HARPI</a> anti ARP spoofing technique, thus making the ARP standardized protocol secure from any foreign intrusion.
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="3"><font color="#737373">3. Features</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The features of ArpON are:
+                <br>
+
+                <ul>
+                <li>
+                <b>Free</b>. ArpON is released under the <a href="index.html#26">BSD open source license</a>. This means that you have total freedom to modify and use it with your system, even if it's commercial.
+                </li>
+                <br>
+
+                <li>
+                <b>Popular</b>. ArpON is used as the <a href="index.html#12">network daemon</a> by many users, both the network managers and academic researchers. ArpON is downloaded several hundred of times every month.
+                </li>
+                <br>
+
+                <li>
+                <b>Tested and reliable</b>. Many users have contributed over the years in testing ArpON on a wide range of Man In The Middle (MITM) attack tools through the ARP spoofing, ARP cache poisoning or ARP poison routing.
+                </li>
+                <br>
+
+                <li>
+                <b>Easy to use</b>. ArpON is distributed as a single <a href="index.html#6">tarball</a> that once compiled, runs on every <a href="index.html#4">supported Operating System</a>. You launch the <a href="index.html#16">executable</a>, and from that moment the Operating System is able to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing.
+                </li>
+                <br>
+
+                <li>
+                <b>Multi-platform</b>. Many <a href="index.html#19">developers</a> have contributed over the years in porting ArpON on a wide range of GNU/Linux distributions.
+                </li>
+                <br>
+
+                <li>
+                <b>Compatible and portable</b>. ArpON is completely compatible with the <a href="index.html#29">ARP standardized protocol</a>. ArpON is an <a href="index.html#12">network daemon</a> that runs in user space, this also means that ArpON will be easily portable to other Operating Systems.
+                </li>
+                <br>
+
+                <li>
+                <b>Well documented</b>. The <a href="index.html#11">documentation</a> of ArpON is easy and complete. The documentation contains the <a href="index.html#6">retrieving tutorial</a>; the <a href="index.html#9">building tutorial</a>; the <a href="index.html#9">installation tutorial</a>; the <a href="index.html#11">user tutorial</a> with many <a href="index.html#16">examples</a> and <a href="index.html#17">scenarios</a>; the <a href="index.html#19">development tutorial</a> with the <a href="index.html#21">Activity diagrams</a> of the <a href="index.html#14">SARPI</a>, <a href="index.html#14">DARPI</a> and <a href="index.html#14">HARPI</a> anti ARP spoofing technique and with modular <a href="http://sourceforge.net/p/arpon/code/ci/master/tree/" target=”_blank”>source code</a> well commented; the <a href="index.html#22">bug report tutorial</a> that takes you step-by-step through all of the features of ArpON.
+                </li>
+                </ul>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="4"><font color="#737373">4. Supported Operating Systems</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                ArpON supports the GNU/Linux Operating System and a wide range of distributions.
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="5"><font color="#737373">5. Required software and libraries</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The <a href="http://sourceforge.net/p/arpon/code/ci/master/tree/" target=”_blank”>source code</a> compilation of the <b><a href="index.html#6">stable release</a></b> of ArpON requires the following software and libraries installed in the System:
+                <br>
+
+                <ul>
+                <li>
+                <a href="http://sourceware.org/binutils/" target=”_blank”>GNU Binutils</a>
+                </li>
+
+                <li>
+                <a href="http://gcc.gnu.org" target=”_blank”>GNU C Compiler (GCC)</a>
+                </li>
+
+                <li>
+                <a href="http://cmake.org" target=”_blank”>Cmake</a> <b>2.6 (or higher)</b>
+                </li>
+
+                <li>
+                <a href="http://www.gnu.org/software/make/" target=”_blank”>GNU Make</a>
+                </li>
+
+                <li>
+                <a href="http://www.gnu.org/software/libc/libc.html" target=”_blank”>GNU C Library (Glibc) with POSIX Threads (Pthreads)</a>
+                </li>
+
+                <li>
+                <a href="http://www.gnu.org/software/libc/libc.html" target=”_blank”>GNU C Library (Glibc) with Realtime Extensions (Librt)</a>
+                </li>
+
+                <li>
+                <a href="http://www.tcpdump.org" target=”_blank”>Libpcap with development libraries</a> <b>1.0.0 (or higher)</b>
+                </li>
+
+                <li>
+                <a href="http://packetfactory.openwall.net/projects/libnet/" target=”_blank”>Libnet1 with development libraries</a> <b>1.1.2.1 (or higher)</b>
+                </li>
+
+                <li>
+                <a href="http://libdnet.sourceforge.net" target=”_blank”>Libdnet with development libraries</a> <b>1.11 (or higher)</b>
+                </li>
+                </ul>
+
+                The <b><a href="index.html#20">development release</a></b> of ArpON also requires the following software installed in the System:
+                <br>
+
+                <ul>
+                <li>
+                <a href="http://git-scm.com" target="_blank">Git</a>
+                </li>
+
+                <li>
+                <a href="http://sourceware.org/gdb/" target=”_blank”>GNU C Debugger (GDB)</a>
+                </li>
+                </ul>
+
+                The <b><a href="index.html#11">documentation</a></b> of ArpON also requires the following software installed in the System:
+                <br>
+
+                <ul>
+                <li>
+                <a href="http://www.visual-paradigm.com" target="_blank">Visual Paradigm</a>
+                </li>
+
+                <li>
+                <a href="http://www.openoffice.org" target="_blank">OpenOffice Draw</a>
+                </li>
+
+                <li>
+                <a href="http://www.vrt.com.au/downloads/vrt-network-equipment/" target="_blank">VRT Network Equipment</a>
+                </li>
+                </ul>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="6"><font color="#737373">6. Stable release via the HTTP mirror</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The latest stable release of ArpON is available via the <a href="http://sourceforge.net/projects/arpon/files/latest/download" target="_blank">HTTP mirror</a>, please follow these steps:
+                <br>
+
+                <ol>
+                <li>
+                First you have to <b>download</b> the tarball via the HTTP mirror:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ wget http://sourceforge.net/projects/arpon/files/latest/download -O arpon.tar.gz
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                After you have successfully downloaded the tarball, download the MD5 file of the tarball via the HTTP mirror:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ wget http://sourceforge.net/projects/arpon/files/latest.md5/download -O latest.md5
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b>Generate</b> the MD5 of your tarball downloaded:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ md5sum arpon.tar.gz | awk '{print $1}' &gt; arpon.md5
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b>Validate</b> the MD5 of your tarball downloaded:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ diff -u latest.md5 arpon.md5
+                </code>
+                </div>
+                <br>
+                If you have not the output of the diff, the tarball downloaded is valid.
+                </li>
+                <br>
+
+                <li>
+                If the tarball si valid, <b>untar</b> the tarball downloaded:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ mkdir arpon
+                <br>
+                $ tar -xvzf arpon.tar.gz -C arpon --strip-components=1
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                After you have successfully downloaded and validated the tarball then you must initiate the <a href="index.html#9">building and installation</a>.
+                </li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="7"><font color="#737373">7. Version</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The version of ArpON is available in:
+                <br>
+
+                <div id="shell" style="margin-left: 39px;">
+                <code>
+                $ cat /path/to/arpon/VERSION
+                </code>
+                </div>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="8"><font color="#737373">8. Changelog</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The changelog of ArpON is available in:
+                <br>
+
+                <div id="shell" style="margin-left: 39px;">
+                <code>
+                $ cat /path/to/arpon/CHANGELOG
+                </code>
+                </div>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="9"><font color="#737373">9. Building and installation</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                To build and install the ArpON, please follow these steps:
+                <br>
+
+                <ul>
+                <li>
+                To install the ArpON in the <b>default "/" path</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ mkdir build
+                <br>
+                $ cd build
+                <br>
+                $ cmake ..
+                <br>
+                $ make
+                <br>
+                $ sudo make install
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                To install the ArpON in an <b>other path</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ mkdir build
+                <br>
+                $ cd build
+                <br>
+                $ cmake -DCMAKE_INSTALL_PREFIX="/path/to/install" ..
+                <br>
+                $ make
+                <br>
+                $ sudo make install
+                </code>
+                </div>
+                <br>
+                Usually the paths of the installation are: "/", "/usr" or "/usr/local".
+                </li>
+                <br>
+
+                <li>
+                If the your <b>dependencies</b> are installed in the other paths:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ mkdir build
+                <br>
+                $ cd build
+                <br>
+                $ cmake -DCMAKE_INCLUDE_PATH="/path/to/include1;/path/to/include2" \
+                <br>
+                -DCMAKE_LIBRARY_PATH="/path/to/library1;/path/to/library2" ..
+                <br>
+                $ make
+                <br>
+                $ sudo make install
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                If you want personalize the <b>CFLAGS</b> compiler parameters:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ mkdir build
+                <br>
+                $ cd build/
+                <br>
+                $ cmake -DCMAKE_C_FLAGS="your-cflags-here" ..
+                <br>
+                $ make
+                <br>
+                $ sudo make install
+                </code>
+                </div>
+                </li>
+                </ul>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="10"><font color="#737373">10. Upgrade</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                To upgrade the ArpON, please follow the steps of the <a href="index.html#9">building and installation</a> (with the same path of your previous installation of ArpON) that will overwrite all the files of ArpON.
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="11"><font color="#737373">11. Quick start</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                To start quickly with ArpON, please follow these guidelines:
+                <br>
+
+                <ol>
+                <li>
+                See the <b>documentation</b> file of ArpON. It contains the <a href="index.html#6">retrieving tutorial</a>; the <a href="index.html#9">building tutorial</a>; the <a href="index.html#9">installation tutorial</a>; the user tutorial with many <a href="index.html#16">examples</a> and <a href="index.html#17">scenarios</a>; the <a href="index.html#19">development tutorial</a> with the <a href="index.html#21">Activity diagrams</a> of the <a href="index.html#14">SARPI</a>, <a href="index.html#14">DARPI</a> and <a href="index.html#14">HARPI</a> anti ARP spoofing technique and with modular <a href="http://sourceforge.net/p/arpon/code/ci/master/tree/" target=”_blank”>source code</a> well commented; the <a href="index.html#22">bug report tutorial</a> that takes you step-by-step through all of the <a href="index.html#3">features</a> of ArpON. Please note that:
+                <br><br>
+                If you chose the default "/" path of the installation, open with a browser web this file:
+                <br><br>
+                <div id="shell">
+                <code>
+                /usr/share/doc/arpon/index.html
+                </code>
+                </div>
+                <br>
+
+                Else open with a browser web this file:
+                <br><br>
+                <div id="shell">
+                <code>
+                PATH/share/doc/arpon/index.html
+                </code>
+                </div>
+                <br>
+                where PATH is the path of your installation.
+                </li>
+                <br>
+
+                <li>
+                See the <b><a href="index.html#12">man page</a></b> of ArpON:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ man 8 arpon
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                See the <b><a href="index.html#14">help screen</a></b> of ArpON:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo arpon -h
+                </code>
+                </div>
+                </li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="12"><font color="#737373">12. ArpON daemon</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The <b>synopsis</b> of ArpON daemon command is:
+                <br>
+
+                <div id="shell" style="margin-left: 39px;">
+                <code>
+                arpon [OPTIONS] [SARPI | DARPI | HARPI]
+                </code>
+                </div>
+                <br>
+
+                ArpON sets of <a href="index.html#14">policies</a> in the ARP cache for all the static and or dynamic entries matching the specified <a href="index.html#14">network interface</a> (or that matching the several specified network interfaces if run concurrently several daemons of ArpON for different network interfaces), through the run of <a href="index.html#14">SARPI</a>, <a href="index.html#14">DARPI</a> or <a href="index.html#14">HARPI</a> anti ARP spoofing technique.
+                <br><br>
+
+                ArpON have to be run with the root privileges. ArpON have to be configured using <a href="index.html#14">command-line options</a> and a <a href="index.html#15">configuration file</a>. ArpON reloads the configuration of the specified <a href="index.html#14">network interface</a> and rereads its configuration file when it receives a hangup signal (SIGHUP) by executing itself with the name and options it was started with. ArpON exits correctly when it receives an interrupt signal (SIGINT) or a termination signal (SIGTERM).
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="13"><font color="#737373">13. Important note</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The ArpON daemon sets two fundamental kernel network parameters via the <a href="index.html#29">sysctl</a> interface on the specified <a href="index.html#14">network interface</a>:
+                <br>
+
+                <ol>
+                <li>
+                The <b><a href="index.html#29">arp_ignore</a></b> kernel parameter of the specified network interface is always setted to 8 by ArpON. This is done to disable, in the specified network interface of the Operating System, the sending of the ARP replies in response to received ARP requests for all local addresses (the ARP replies on the specified network interface, will be sent by ArpON instead of the Operating System).
+                </li>
+                <br>
+
+                <li>
+                The <b><a href="index.html#29">arp_accept</a></b> kernel parameter of the specified network interface is always setted to 0 by ArpON. This is done to disable, in the specified network interface of the Operating System, the creating of the new IP entries in the ARP cache triggered by the unsolicited and gratuitous ARP requests and replies (the IP entries in the ARP cache on the specified network interface, will be created or updated by ArpON as static or dynamic IP entries instead of the Operating System).
+                </li>
+                </ol>
+
+                The ArpON daemon restores the previously values read from the arp_ignore and arp_accept kernel parameters of the specified network interface when it receives an interrupt signal (SIGINT) or a termination signal (SIGTERM). <b>Remember to restore</b> the values of the arp_ignore and arp_accept kernel parameters of the specified network interface (the default values are 0 for both), if you have terminated the ArpON daemon with other signals, e.g. kill signal (SIGKILL).
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="14"><font color="#737373">14. Options summary</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The available options of <a href="index.html#12">ArpON daemon</a> command are:
+                <br>
+
+                <ul>
+                <li>
+                <b>General</b> options:
+                <br><br>
+                <div id="shell">
+                <code>
+                -d, --daemon
+                <br>
+                Daemonize the ArpON.
+                <br><br>
+                -i, --interface &lt;interface&gt;
+                <br>
+                Use the specified network interface.
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b>SARPI</b> '<b>Static ARP Inspection</b>' option:
+                <br><br>
+                SARPI anti ARP spoofing technique manages and sets the policies in the ARP cache only for all the static entries matching the specified <a href="index.html#14">network interface</a>, in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore SARPI is an optimal choice in those statically configured networks without DHCP. SARPI sets these <b>policies</b>:
+                <br><br>
+
+                <ol>
+                <li>
+                <b>CLEAN</b>: SARPI cleans from the ARP cache only all the entries matching the specified network interface, that are present or not present in the configuration file;
+                </li>
+
+                <li>
+                <b>UPDATE</b>: SARPI updates in the ARP cache only all the static entries matching the specified network interface, that are present in the configuration file;
+                </li>
+
+                <li>
+                <b>REFRESH</b>: SARPI refreshes in the ARP cache only a static entry matching the specified network interface, that is present in the configuration file;
+                </li>
+
+                <li>
+                <b>ALLOW</b>: SARPI sets up in the ARP cache only a dynamic entry matching the specified network interface, that is not present in the configuration file.
+                </li>
+                </ol>
+
+                Therefore SARPI requires a specified network interface and the specification in the <a href="index.html#15">configuration file</a> of the ARP cache only for all the static entries matching the specified network interface.
+                <br><br>
+
+                <div id="shell">
+                <code>
+                -S, --sarpi
+                <br>
+                Run SARPI anti ARP spoofing technique.
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b>DARPI</b> '<b>Dynamic ARP Inspection</b>' option:
+                <br><br>
+                DARPI anti ARP spoofing technique manages and sets the policies in the ARP cache only for all the dynamic entries matching the specified <a href="index.html#14">network interface</a>, in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore DARPI is an optimal choice in those dynamically configured networks with DHCP. DARPI sets these <b>policies</b>:
+                <br><br>
+
+                <ol>
+                <li>
+                <b>CLEAN</b>: DARPI cleans from the ARP cache only all the entries matching the specified network interface;
+                </li>
+
+                <li>
+                <b>ALLOW</b>: DARPI sets up in the ARP cache only a dynamic entry matching the specified network interface;
+                </li>
+
+                <li>
+                <b>DENY</b>: DARPI cleans up from the ARP cache only a dynamic entry matching the specified network interface.
+                </li>
+                </ol>
+
+                Therefore DARPI requires a specified network interface and it doesn't requires any specification in the <a href="index.html#15">configuration file</a> of the ARP cache only for all the dynamic entries matching the specified network interface.
+                <br><br>
+
+                <div id="shell">
+                <code>
+                -D, --darpi
+                <br>
+                Run DARPI anti ARP spoofing technique.
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b>HARPI</b> '<b>Hybrid ARP Inspection</b>' option:
+                <br><br>
+                HARPI anti ARP spoofing technique manages and sets the policies in the ARP cache for both all the static and dynamic entries matching the specified <a href="index.html#14">network interface</a>, in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore HARPI is an optimal choice in those statically and dynamically configured networks with DHCP. HARPI sets and combines these <b>policies</b> of the SARPI and DARPI:
+                <br><br>
+
+                <ol>
+                <li>
+                <b>CLEAN</b>: HARPI cleans from the ARP cache only all the entries matching the specified network interface, that are present or not present in the configuration file;
+                </li>
+
+                <li>
+                <b>UPDATE</b>: HARPI updates in the ARP cache only all the static entries matching the specified network interface, that are present in the configuration file;
+                </li>
+
+                <li>
+                <b>REFRESH</b>: HARPI refreshes in the ARP cache only a static entry matching the specified network interface, that is present in the configuration file;
+                </li>
+
+                <li>
+                <b>ALLOW</b>: HARPI sets up in the ARP cache only a dynamic entry matching the specified network interface, that is not present in the configuration file;
+                </li>
+
+                <li>
+                <b>DENY</b>: HARPI cleans up from the ARP cache only a dynamic entry matching the specified network interface, that is not present in the configuration file.
+                </li>
+                </ol>
+
+                Therefore HARPI requires a specified network interface, the specification in the <a href="index.html#15">configuration file</a> of the ARP cache only for all the static entries matching the specified network interface; instead it doesn't requires any specification in the configuration file of the ARP cache only for all the dynamic entries matching the specified network interface.
+                <br><br>
+
+                <div id="shell">
+                <code>
+                -H, --harpi
+                <br>
+                Run HARPI anti ARP spoofing technique.
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b>Standard</b> options:
+                <br><br>
+                <div id="shell">
+                <code>
+                -v, --version
+                <br>
+                Print the version and exit.
+                <br><br>
+                -h, --help
+                <br>
+                Print the help screen and exit.
+                </code>
+                </div>
+                </li>
+                </ul>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="15"><font color="#737373">15. Files</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The available files of <a href="index.html#12">ArpON daemon</a> command are:
+                <br>
+
+                <ul>
+                <li>
+                The <b>configuration</b> file contains the configuration data of ArpON and it is used when run the <a href="index.html#14">SARPI</a> or <a href="index.html#14">HARPI</a> anti ARP spoofing technique, for the specification in the ARP cache only for all the static entries matching the specified <a href="index.html#14">network interface</a> (or that matching the several specified network interfaces if run concurrently several daemons of ArpON for different network interfaces). This file should be writable by root only but it is recommended (though not necessary) that it be world-readable. Please note that:
+                <br><br>
+                If you chose the default "/" path of the installation, the configuration file is:
+                <br><br>
+                <div id="shell">
+                <code>
+                /etc/arpon.conf
+                </code>
+                </div>
+                <br>
+                Else the configuration file is:
+                <br><br>
+                <div id="shell">
+                <code>
+                PATH/etc/arpon.conf
+                </code>
+                </div>
+                <br>
+                where PATH is the path of your installation.
+                </li>
+                <br>
+
+                <li>
+                The <b>log</b> file contains the log data of ArpON. If there are several <a href="index.html#12">daemons</a> of ArpON running concurrently for different <a href="index.html#14">network interfaces</a>, this contains the log data of all the daemons of ArpON. This file should be readable only by root, and need not be readable by anyone else. Please note that:
+                <br><br>
+                If you chose the default "/" path of the installation, the log file is:
+                <br><br>
+                <div id="shell">
+                <code>
+                /var/log/arpon.log
+                </code>
+                </div>
+                <br>
+                Else the log file is:
+                <br><br>
+                <div id="shell">
+                <code>
+                PATH/log/arpon.log
+                </code>
+                </div>
+                <br>
+                where PATH is the path of your installation.
+                </li>
+                <br>
+
+                <li>
+                The <b>pid</b> file contains the process ID of ArpON. If there are several <a href="index.html#12">daemons</a> of ArpON running concurrently for different <a href="index.html#14">network interfaces</a>, this contains the process ID of the one started last. The content of this file is not sensitive; it can be world-readable. Please note that:
+                <br><br>
+                If you chose the default "/" path of the installation, the pid file is:
+                <br><br>
+                <div id="shell">
+                <code>
+                /var/run/arpon.pid
+                </code>
+                </div>
+                <br>
+                Else the pid file is:
+                <br><br>
+                <div id="shell">
+                <code>
+                PATH/run/arpon.pid
+                </code>
+                </div>
+                <br>
+                where PATH is the path of your installation.
+                </li>
+                </ul>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="16"><font color="#737373">16. Examples</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                These examples shows how to use all three kinds of anti ARP spoofing techniques of <a href="index.html#12">ArpON daemon</a>. Note that these examples use the default "/" path of the installation of the files.
+                <br><br>
+                In the same host, we have three <a href="index.html#14">network interfaces</a> with different subnet classes and we would set the ARP cache for all the static and dynamic entries matching the eth0, wlan0 and eth1 network interfaces. This scenario requires the run concurrently of three <a href="index.html#12">daemons</a> of ArpON:
+                <br>
+
+                <ul>
+                <li>
+                <b><a href="index.html#14">SARPI</a></b> '<b><a href="index.html#14">Static ARP Inspection</a></b>' example:
+                <br><br>
+                The eth0 <a href="index.html#14">network interface</a> has the 192.168.1.2/24 IP address. We have only three static entries of the ARP cache:
+                <br><br>
+
+                <ol>
+                <li>
+                192.168.1.1 at 58:ac:78:10:b9:77;
+                </li>
+
+                <li>
+                192.168.1.3 at d4:be:d9:fe:8b:45;
+                </li>
+
+                <li>
+                192.168.1.4 at 90:94:e4:bb:1c:10.
+                </li>
+                </ol>
+
+                and we have no dynamic entries of the ARP cache. This is the ideal case where we have to use the <a href="index.html#14">SARPI</a> anti ARP spoofing technique, therefore specify in the <a href="index.html#15">configuration file</a> of the ARP cache only all the static entries matching the eth0 <a href="index.html#14">network interface</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo nano /etc/arpon.conf
+                </code>
+                </div>
+
+                <br>
+                Therefore:
+                <br><br>
+
+                <div id="shell">
+                <code>
+                #
+                <br>
+                # ArpON configuration file.
+                <br>
+                #
+                <br>
+                # See the arpon(8) man page for details.
+                <br>
+                #
+                <br><br>
+                #
+                <br>
+                # Static entries matching the eth0 network interface:
+                <br>
+                #
+                <br>
+                # First static entry:
+                <br>
+                192.168.1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58:ac:78:10:b9:77
+                <br>
+                # Second static entry:
+                <br>
+                192.168.1.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d4:be:d9:fe:8b:45
+                <br>
+                # Third static entry:
+                <br>
+                192.168.1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90:94:e4:bb:1c:10
+                </code>
+                </div>
+                <br>
+
+                Daemonize the <a href="index.html#14">ArpON</a> and run <a href="index.html#14">SARPI</a> anti ARP spoofing technique on the eth0 <a href="index.html#14">network interface</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo arpon -d -i eth0 -S
+                </code>
+                </div>
+                <br>
+                Read the <a href="index.html#15">log file</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo tail -f /var/log/arpon.log
+                </code>
+                </div>
+                <br>
+                Read the <a href="index.html#15">pid file</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cat /var/run/arpon.pid
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b><a href="index.html#14">DARPI</a></b> '<b><a href="index.html#14">Dynamic ARP Inspection</a></b>' example:
+                <br><br>
+                The wlan0 <a href="index.html#14">network interface</a> has the 172.16.1.2/24 IP address. We have no static entries of the ARP cache, and we have only dynamic entries of the ARP cache. This is the ideal case where we have to use the <a href="index.html#14">DARPI</a> anti ARP spoofing technique, therefore daemonize the <a href="index.html#14">ArpON</a> and run <a href="index.html#14">DARPI</a> anti ARP spoofing technique on the wlan0 <a href="index.html#14">network interface</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo arpon -d -i wlan0 -D
+                </code>
+                </div>
+                <br>
+                Read the <a href="index.html#15">log file</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo tail -f /var/log/arpon.log
+                </code>
+                </div>
+                <br>
+                Read the <a href="index.html#15">pid file</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cat /var/run/arpon.pid
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                <b><a href="index.html#14">HARPI</a></b> '<b><a href="index.html#14">Hybrid ARP Inspection</a></b>' example:
+                <br><br>
+                The eth1 <a href="index.html#14">network interface</a> has the 10.0.1.2/16 IP address. We have only two static entries of the ARP cache:
+                <br><br>
+
+                <ol>
+                <li>
+                10.0.1.1 at 58:ac:78:88:1a:bb;
+                </li>
+
+                <li>
+                10.0.10.1 at 90:94:e4:7e:f4:59.
+                </li>
+                </ol>
+
+                and we have the rest of entries as dynamic entries of the ARP cache. This is the ideal case where we have to use the <a href="index.html#14">HARPI</a> anti ARP spoofing technique, therefore specify in the <a href="index.html#15">configuration file</a> of the ARP cache only all the static entries matching the eth1 <a href="index.html#14">network interface</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo nano /etc/arpon.conf
+                </code>
+                </div>
+
+                <br>
+                Therefore:
+                <br><br>
+
+                <div id="shell">
+                <code>
+                #
+                <br>
+                # ArpON configuration file.
+                <br>
+                #
+                <br>
+                # See the arpon(8) man page for details.
+                <br>
+                #
+                <br><br>
+                #
+                <br>
+                # Static entries matching the eth0 network interface:
+                <br>
+                #
+                <br>
+                # First static entry:
+                <br>
+                192.168.1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58:ac:78:10:b9:77
+                <br>
+                # Second static entry:
+                <br>
+                192.168.1.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d4:be:d9:fe:8b:45
+                <br>
+                # Third static entry:
+                <br>
+                192.168.1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90:94:e4:bb:1c:10
+                <br><br>
+                #
+                <br>
+                # Static entries matching the eth1 network interface:
+                <br>
+                #
+                <br>
+                # First static entry:
+                <br>
+                10.0.1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58:ac:78:88:1a:bb
+                <br>
+                # Second static entry:
+                <br>
+                10.0.10.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;90:94:e4:7e:f4:59
+                </code>
+                </div>
+                <br>
+
+                Daemonize the <a href="index.html#14">ArpON</a> and run <a href="index.html#14">HARPI</a> anti ARP spoofing technique on the eth1 <a href="index.html#14">network interface</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo arpon -d -i eth1 -H
+                </code>
+                </div>
+                <br>
+                Read the <a href="index.html#15">log file</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo tail -f /var/log/arpon.log
+                </code>
+                </div>
+                <br>
+                Read the <a href="index.html#15">pid file</a>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cat /var/run/arpon.pid
+                </code>
+                </div>
+                </li>
+                </ul>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="17"><font color="#737373">17. How to use ArpON</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The available scenarios of ArpON, that explain respectively how ArpON works and how to use ArpON are:
+                <br>
+
+                <ul>
+                <li>
+                <b>Half-duplex ArpON defense</b>:
+                <br><br>
+
+                This scenario shows the <b>half-duplex</b> Man In The Middle (half-duplex MITM) <b>attack</b> through the ARP spoofing. The attacker is attacking only the host A, therefore the attacker is intercepting only the communications <b>from the host A to host B</b>:
+                <br><br>
+
+                Open this Network diagram as [<b><a href="scenario/halfduplexattack.jpg" target="_blank">JPG</a></b> | <b><a href="scenario/halfduplexattack.pdf" target="_blank">PDF</a></b> | <b><a href="scenario/halfduplexattack.odg" target="_blank">ODG</a></b>].
+                <br><br>
+
+                <center>
+                <a href="scenario/halfduplexattack.jpg" target="_blank"><img src="scenario/halfduplexattack.jpg" style="width: 65%; margin-right: 39px;" border=0 /></a>
+                </center>
+                <br>
+
+                Run the ArpON <b>only in the host A</b> in order to avoid the half-duplex attack:
+                <br><br>
+
+                Open this Network diagram as [<b><a href="scenario/halfduplexdefense.jpg" target="_blank">JPG</a></b> | <b><a href="scenario/halfduplexdefense.pdf" target="_blank">PDF</a></b> | <b><a href="scenario/halfduplexdefense.odg" target="_blank">ODG</a></b>].
+                <br><br>
+
+                <center>
+                <a href="scenario/halfduplexdefense.jpg" target="_blank"><img src="scenario/halfduplexdefense.jpg" style="width: 65%; margin-right: 39px;" border=0 /></a>
+                </center>
+                <br>
+
+                The communications <b>between the host A and the host B</b> are back again secure, leaving the attacker out.
+                </li>
+                </ul>
+
+                <ul>
+                <li>
+                <b>Full-duplex ArpON defense</b>:
+                <br><br>
+
+                This scenario shows the <b>full-duplex</b> Man In The Middle (full-duplex MITM) <b>attack</b> through the ARP spoofing. The attacker is attacking both the host A and the host B, therefore the attacker is intercepting all the communications <b>between the host A and the host B</b>:
+                <br><br>
+
+                Open this Network diagram as [<b><a href="scenario/fullduplexattack.jpg" target="_blank">JPG</a></b> | <b><a href="scenario/fullduplexattack.pdf" target="_blank">PDF</a></b> | <b><a href="scenario/fullduplexattack.odg" target="_blank">ODG</a></b>].
+                <br><br>
+
+                <center>
+                <a href="scenario/fullduplexattack.jpg" target="_blank"><img src="scenario/fullduplexattack.jpg" style="width: 65%; margin-right: 39px;" border=0 /></a>
+                </center>
+                <br>
+
+                Run the ArpON <b>only in the host A</b> in order to avoid the half-duplex attack:
+                <br><br>
+
+                Open this Network diagram as [<b><a href="scenario/fullduplexhalfdefense.jpg" target="_blank">JPG</a></b> | <b><a href="scenario/fullduplexhalfdefense.pdf" target="_blank">PDF</a></b> | <b><a href="scenario/fullduplexhalfdefense.odg" target="_blank">ODG</a></b>].
+                <br><br>
+
+                <center>
+                <a href="scenario/fullduplexhalfdefense.jpg" target="_blank"><img src="scenario/fullduplexhalfdefense.jpg" style="width: 65%; margin-right: 39px;" border=0 /></a>
+                </center>
+                <br>
+
+                The communications <b>from the host A to host B</b> are back again secure, leaving the attacker out. Finally, run the ArpON <b>also in the host B</b> in order to avoid the full-duplex attack:
+                <br><br>
+
+                Open this Network diagram as [<b><a href="scenario/fullduplexfulldefense.jpg" target="_blank">JPG</a></b> | <b><a href="scenario/fullduplexfulldefense.pdf" target="_blank">PDF</a></b> | <b><a href="scenario/fullduplexfulldefense.odg" target="_blank">ODG</a></b>].
+                <br><br>
+
+                <center>
+                <a href="scenario/fullduplexfulldefense.jpg" target="_blank"><img src="scenario/fullduplexfulldefense.jpg" style="width: 65%; margin-right: 39px;" border=0 /></a>
+                </center>
+                <br>
+
+                The communications <b>between the host A and the host B</b> are back again secure, leaving the attacker out.
+                </li>
+                </ul>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="18"><font color="#737373">18. Uninstallation</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                To uninstall ArpON:
+                <br>
+
+                <div id="shell" style="margin-left: 39px;">
+                <code>
+                $ cd /path/to/arpon/build
+                <br>
+                $ sudo make uninstall
+                </code>
+                </div>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="19"><font color="#737373">19. Support the development</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                If you are a <b>developer</b> and you wish write any fix, feature or OS port of ArpON, please follow these steps, make it available under the <a href="index.html#26">BSD open source license</a> and contribute to the project sending the patch:
+                <br>
+
+                <ol>
+                <li>
+                <b>Clone</b> or <b>pull</b> via the <a href="index.html#20">GIT repository</a> and use the latest development release of ArpON.
+                </li>
+
+                <li>
+                Understand the <b><a href="index.html#21">Activity diagrams</a></b> of ArpON, that explain respectively the <b>algorithms</b> and the <b><a href="index.html#14">policies</a></b> of <a href="index.html#14">SARPI</a>, <a href="index.html#14">DARPI</a> and <a href="index.html#14">HARPI</a> anti ARP spoofing technique.
+                </li>
+
+                <li>
+                Create a new <b>devel branch</b> and personalize the build type from Release to <b>Debug</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ git checkout -b devel
+                <br>
+                $ mkdir debug
+                <br>
+                $ cd debug
+                <br>
+                $ cmake -DCMAKE_BUILD_TYPE="debug" ..
+                <br>
+                $ make VERBOSE=1
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Before to see any codes, study and <b>adhere</b> the <b><a href="https://www.freebsd.org/cgi/man.cgi?query=style&sektion=9" target=”_blank”>FreeBSD encoding standard</a></b>.
+                </li>
+
+                <li>
+                Write any fix, feature or OS port for ArpON and test it in Debug build type:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ vim file_to_edit_1 file_to_edit_2 file_to_edit_N
+                <br>
+                $ cd /path/to/arpon/debug
+                <br>
+                $ make VERBOSE=1
+                <br>
+                $ sudo make install
+                <br>
+                $ sudo arpon [OPTIONS] [SARPI | DARPI | HARPI]
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Switch the build type from Debug to <b>Release</b> and test, test and test it again in Release build type:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon/debug
+                <br>
+                $ sudo make uninstall
+                <br>
+                $ cd ..
+                <br>
+                $ mkdir release
+                <br>
+                $ cd release
+                <br>
+                $ cmake -DCMAKE_BUILD_TYPE="release" ..
+                <br>
+                $ make
+                <br>
+                $ sudo make install
+                <br>
+                $ sudo arpon [OPTIONS] [SARPI | DARPI | HARPI]
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Commit the changes into devel branch and create the <b>patch</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon/
+                <br>
+                $ rm -Rf debug release
+                <br>
+                $ git add -A
+                <br>
+                $ git commit -m "Describe your patch"
+                <br>
+                $ git format-patch master --stdout &gt; patch.diff
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Send the created patch.diff file with any details to <a href="index.html#25">author</a> or via the <a href="http://sourceforge.net/p/arpon/bugs/" target=”_blank”>Bug tracking system</a>.
+                </li>
+
+                <li>
+                The author will review the code, make any necessary changes and <b>merge the code</b> into the proper branch.
+                </li>
+
+                <li>
+                You will receive <b>full credit</b> as a <a href="index.html#27">contributor</a> to the project.
+                </li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="20"><font color="#737373">20. Development release via the GIT repository</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The latest development release of ArpON is available via the <a href="http://sourceforge.net/p/arpon/code/ci/master/tree/" target=”_blank”>GIT repository</a>, please follow these steps:
+                <br>
+
+                <ol>
+                <li>
+                First you have to <b>clone</b> the project via the GIT repository:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ git clone git://git.code.sourceforge.net/p/arpon/code arpon
+                <br>
+                $ cd arpon
+                </code>
+                </div>
+                <br>
+                Or via the GIT repository over HTTP protocol:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ git clone http://git.code.sourceforge.net/p/arpon/code arpon
+                <br>
+                $ cd arpon
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                If you already had the repository cloned, you will need to <b>pull</b> the latest changes:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ git pull
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                After you have successfully cloned or pulled the repository then you must initiate the <a href="index.html#9">building and installation</a>.
+                </li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="21"><font color="#737373">21. Activity diagrams</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                All the available <b>algorithms</b> of ArpON are compatible with the ARP standardized protocol as described in these official <b>RFC</b> documents:
+                <br>
+
+                <ol>
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc826" target=”_blank”>RFC 826</a></b>;
+                </li>
+
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc2131" target=”_blank”>RFC 2131</a></b>;
+                </li>
+
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc3927" target=”_blank”>RFC 3927</a></b>;
+                </li>
+
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc5227" target=”_blank”>RFC 5227</a></b>.
+                </li>
+                </ol>
+
+                Note that all the available algorithms of ArpON set the arp_ignore and the arp_accept fundamental kernel network parameters via the <b>sysctl</b> interface as described in this official kernel document:
+                <br>
+
+                <ol>
+                <li>
+                <b><a href="http://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt" target=”_blank”>IP sysctl</a></b>.
+                </li>
+                </ol>
+
+                Therefore the available Activity diagrams of ArpON, that explain respectively the algorithms and the <b><a href="index.html#14">policies</a></b> of all three kinds of anti ARP spoofing techniques are:
+                <br>
+
+                <ul>
+                <li>
+                <b><a href="index.html#14">SARPI</a></b> '<b><a href="index.html#14">Static ARP Inspection</a></b>' Activity diagram:
+                <br><br>
+
+                Open this Activity diagram as [<b><a href="uml/SARPI.jpg" target="_blank">JPG</a></b> | <b><a href="uml/SARPI.pdf" target="_blank">PDF</a></b> | <b><a href="uml/SARPI.vpp" target="_blank">VPP</a></b>].
+                </li>
+                </ul>
+
+                <center>
+                <a href="uml/SARPI.jpg" target=”_blank”><img src="uml/SARPI.jpg" style="width: 75%;" border=0 /></a>
+                </center>
+
+                <ul>
+                To understand the <b><a href="index.html#14">SARPI</a></b> '<b><a href="index.html#14">Static ARP Inspection</a></b>' Activity diagram, it is very important to understand this network diagram, that show a <b>simple case of execution</b> of the SARPI algorithm, <b>in order to permit the communication between the host A (with a static IP address) and the host B (with a static IP address)</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/SARPI.jpg" target="_blank">JPG</a></b> | <b><a href="network/SARPI.pdf" target="_blank">PDF</a></b> | <b><a href="network/SARPI.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/SARPI.jpg" target=”_blank”><img src="network/SARPI.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                Instead this network diagram shows a <b>simple case of execution</b> of the <b><a href="index.html#14">SARPI</a></b> algorithm, <b>in order to permit the communication between the host A (with a static IP address) and the host B (with a static IP address), leaving the host C (attacker) out from the communication</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/SARPI_defense.jpg" target="_blank">JPG</a></b> | <b><a href="network/SARPI_defense.pdf" target="_blank">PDF</a></b> | <b><a href="network/SARPI_defense.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/SARPI_defense.jpg" target=”_blank”><img src="network/SARPI_defense.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                <li>
+                <b><a href="index.html#14">DARPI</a></b> '<b><a href="index.html#14">Dynamic ARP Inspection</a></b>' Activity diagram:
+                <br><br>
+
+                Open this Activity diagram as [<b><a href="uml/DARPI.jpg" target="_blank">JPG</a></b> | <b><a href="uml/DARPI.pdf" target="_blank">PDF</a></b> | <b><a href="uml/DARPI.vpp" target="_blank">VPP</a></b>].
+                </li>
+                </ul>
+
+                <center>
+                <a href="uml/DARPI.jpg" target=”_blank”><img src="uml/DARPI.jpg" style="width: 75%;" border=0 /></a>
+                </center>
+
+                <ul>
+                To understand the <b><a href="index.html#14">DARPI</a></b> '<b><a href="index.html#14">Dynamic ARP Inspection</a></b>' Activity diagram, it is very important to understand this network diagram, that show a <b>simple case of execution</b> of the DARPI algorithm, <b>in order to permit the communication between the host A (with a dynamic IP address) and the host B (with a dynamic IP address), checking any network errors</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/DARPI.jpg" target="_blank">JPG</a></b> | <b><a href="network/DARPI.pdf" target="_blank">PDF</a></b> | <b><a href="network/DARPI.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/DARPI.jpg" target=”_blank”><img src="network/DARPI.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                Instead this network diagram shows a <b>simple case of execution</b> of the <b><a href="index.html#14">DARPI</a></b> algorithm, <b>in order to permit the communication between the host A (with a dynamic IP address) and the host B (with a dynamic IP address), leaving the host C (attacker) out from the communication</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/DARPI_defense.jpg" target="_blank">JPG</a></b> | <b><a href="network/DARPI_defense.pdf" target="_blank">PDF</a></b> | <b><a href="network/DARPI_defense.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/DARPI_defense.jpg" target=”_blank”><img src="network/DARPI_defense.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                <li>
+                <b><a href="index.html#14">HARPI</a></b> '<b><a href="index.html#14">Hybrid ARP Inspection</a></b>' Activity diagram <b>that combines the SARPI and DARPI Activity diagram</b>:
+                <br><br>
+
+                Open this Activity diagram as [<b><a href="uml/HARPI.jpg" target="_blank">JPG</a></b> | <b><a href="uml/HARPI.pdf" target="_blank">PDF</a></b> | <b><a href="uml/HARPI.vpp" target="_blank">VPP</a></b>].
+                </li>
+                </ul>
+
+                <center>
+                <a href="uml/HARPI.jpg" target=”_blank”><img src="uml/HARPI.jpg" style="width: 75%;" border=0 /></a>
+                </center>
+
+                <ul>
+                To understand the <b><a href="index.html#14">HARPI</a></b> '<b><a href="index.html#14">Hybrid ARP Inspection</a></b>' Activity diagram, it is very important to understand these network diagrams, where the first one show a <b>simple case of execution</b> of the HARPI algorithm, <b>in order to permit the communication between the host A (with a static IP address) and the host B (with a static IP address)</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/HARPI_static.jpg" target="_blank">JPG</a></b> | <b><a href="network/HARPI_static.pdf" target="_blank">PDF</a></b> | <b><a href="network/HARPI_static.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/HARPI_static.jpg" target=”_blank”><img src="network/HARPI_static.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                Instead this network diagram shows a <b>simple case of execution</b> of the <b><a href="index.html#14">HARPI</a></b> algorithm, <b>in order to permit the communication between the host A (with a static IP address) and the host B (with a static IP address), leaving the host C (attacker) out from the communication</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/HARPI_static_defense.jpg" target="_blank">JPG</a></b> | <b><a href="network/HARPI_static_defense.pdf" target="_blank">PDF</a></b> | <b><a href="network/HARPI_static_defense.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/HARPI_static_defense.jpg" target=”_blank”><img src="network/HARPI_static_defense.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                The second one show a <b>simple case of execution</b> of the <b><a href="index.html#14">HARPI</a></b> algorithm, <b>in order to permit the communication between the host A (with a dynamic IP address) and the host B (with a dynamic IP address), checking any network errors</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/HARPI_dynamic.jpg" target="_blank">JPG</a></b> | <b><a href="network/HARPI_dynamic.pdf" target="_blank">PDF</a></b> | <b><a href="network/HARPI_dynamic.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/HARPI_dynamic.jpg" target=”_blank”><img src="network/HARPI_dynamic.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                Instead this network diagram shows a <b>simple case of execution</b> of the <b><a href="index.html#14">HARPI</a></b> algorithm, <b>in order to permit the communication between the host A (with a dynamic IP address) and the host B (with a dynamic IP address), leaving the host C (attacker) out from the communication</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/HARPI_dynamic_defense.jpg" target="_blank">JPG</a></b> | <b><a href="network/HARPI_dynamic_defense.pdf" target="_blank">PDF</a></b> | <b><a href="network/HARPI_dynamic_defense.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/HARPI_dynamic_defense.jpg" target=”_blank”><img src="network/HARPI_dynamic_defense.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                The third one show a <b>simple case of execution</b> of the <b><a href="index.html#14">HARPI</a></b> algorithm, <b>in order to permit the communication between the host A (with a dynamic IP address) and the host B (with a static IP address), checking any network errors</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/HARPI_hybrid.jpg" target="_blank">JPG</a></b> | <b><a href="network/HARPI_hybrid.pdf" target="_blank">PDF</a></b> | <b><a href="network/HARPI_hybrid.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/HARPI_hybrid.jpg" target=”_blank”><img src="network/HARPI_hybrid.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+
+                <ul>
+                Instead this network diagram shows a <b>simple case of execution</b> of the <b><a href="index.html#14">HARPI</a></b> algorithm, <b>in order to permit the communication between the host A (with a dynamic IP address) and the host B (with a static IP address), leaving the host C (attacker) out from the communication</b>:
+                <br><br>
+                Open this network diagram as [<b><a href="network/HARPI_hybrid_defense.jpg" target="_blank">JPG</a></b> | <b><a href="network/HARPI_hybrid_defense.pdf" target="_blank">PDF</a></b> | <b><a href="network/HARPI_hybrid_defense.odg" target="_blank">ODG</a></b>].
+                </ul>
+
+                <center>
+                <a href="network/HARPI_hybrid_defense.jpg" target=”_blank”><img src="network/HARPI_hybrid_defense.jpg" style="width: 100%;" border=0 /></a>
+                </center>
+                </a>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="22"><font color="#737373">22. Compile time bugs</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                If you are <b>not able to compile</b> ArpON on your System, please follow these steps to make a simple bug report in order to help us to find the bug and fix it:
+                <br>
+
+                <ol>
+                <li>
+                Clean the ArpON build directory:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon/build
+                <br>
+                $ make clean-all
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Create the report directory:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ mkdir /tmp/report
+                </code>
+                </div>
+                </li>
+                </ol>
+
+                We need the following informations:
+                <br>
+
+                <ol>
+                <li>
+                A <b>description of your Operating System</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ uname -a &gt; /tmp/report/os.log
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                A <b>description of your GNU/Linux distribution</b>:
+                <br><br>
+
+                If you have the lsb_release command:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ lsb_release -a &gt; /tmp/report/distro.log
+                </code>
+                </div>
+                <br>
+
+                Else if you have not the lsb_release command:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cp /etc/os-release /tmp/report/distro.log
+                </code>
+                </div>
+                <br>
+
+                Else if you have not the os-release file put your distribution name:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ echo "your-distro-here" &gt; /tmp/report/distro.log
+                </code>
+                </div>
+
+                </li>
+                <br>
+
+                <li>
+                The <b><a href="index.html#7">version</a></b> of ArpON:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cp ../VERSION /tmp/report
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                The <b>CMake cache file</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cmake ..
+                <br>
+                $ cp CMakeCache.txt /tmp/report
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                The entire <b>output from make</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ make VERBOSE=1 &gt;&gt; /tmp/report/make_out.log 2&gt;&gt; /tmp/report/make_err.log
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Make a tarball of your report:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /tmp
+                <br>
+                $ tar -pcvzf report.tar.gz report
+                <br>
+                report/
+                <br>
+                report/distro.log
+                <br>
+                report/os.log
+                <br>
+                report/make_err.log
+                <br>
+                report/CMakeCache.txt
+                <br>
+                report/VERSION
+                <br>
+                report/make_out.log
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Send the report.tar.gz tarball to <a href="index.html#25">author</a> or via the <a href="http://sourceforge.net/p/arpon/bugs/" target=”_blank”>Bug tracking system</a>.
+                </li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="23"><font color="#737373">23. Runtime bugs</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                If the <b>bug is critical</b> and results in a segmentation fault, please follow these steps to make a detailed bug report in order to help us to find the bug and fix it:
+                <br>
+
+                <ol>
+                <li>
+                Recompile the ArpON in debug build type:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /path/to/arpon
+                <br>
+                $ mkdir debug
+                <br>
+                $ cd debug
+                <br>
+                $ cmake -DCMAKE_BUILD_TYPE="debug" ..
+                <br>
+                $ make
+                <br>
+                $ sudo make install
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Create the report directory:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ mkdir /tmp/report
+                </code>
+                </div>
+                </li>
+                </ol>
+
+                We need the following informations:
+                <br>
+
+                <ol>
+                <li>
+                A <b>description of your Operating System</b>:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ uname -a &gt; /tmp/report/os.log
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                A <b>description of your GNU/Linux distribution</b>:
+                <br><br>
+
+                If you have the lsb_release command:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ lsb_release -a &gt; /tmp/report/distro.log
+                </code>
+                </div>
+                <br>
+
+                Else if you have not the lsb_release command:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cp /etc/os-release /tmp/report/distro.log
+                </code>
+                </div>
+                <br>
+
+                Else if you have not the os-release file put your distribution name:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ echo "your-distro-here" &gt; /tmp/report/distro.log
+                </code>
+                </div>
+
+                </li>
+                <br>
+
+                <li>
+                The <b><a href="index.html#7">version</a></b> of ArpON:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cp ../VERSION /tmp/report
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                The <b>stacktrace</b> of ArpON that reproduces the bug:
+                <br><br>
+
+                Override any limit for coredumps:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ ulimit -c unlimited
+                </code>
+                </div>
+                <br>
+
+                Enter in the directory where there is the ArpON <a href="index.html#16">executable</a>:
+                <br><br>
+
+                If you chose the default "/" path of the installation, enter in:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /sbin
+                </code>
+                </div>
+                <br>
+
+                Else enter in:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd PATH/sbin
+                </code>
+                </div>
+                <br>
+
+                where PATH is the path of your installation.
+                <br><br>
+
+                Run the ArpON <a href="index.html#16">executable</a> and reproduce the bug (it'll create the coredump):
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo arpon your-parameters-here
+                </code>
+                </div>
+                <br>
+
+                Create the stacktrace of the bug with the gdb and the coredump:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ sudo gdb --batch --quiet -ex "thread apply all bt full" -ex "quit" \
+                <br>
+                arpon core &gt;&gt; /tmp/report/stacktrace.log 2&gt;&gt; /tmp/report/stacktrace.log
+                </code>
+                </div>
+                <br>
+
+                Please note that the path of the coredump depends by your OS setting.
+                </li>
+                <br>
+
+                <li>
+                The <b><a href="index.html#15">log file</a></b> of ArpON:
+                <br><br>
+
+                If you chose the default "/" path of the installation, copy this file:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cp /var/log/arpon.log /tmp/report
+                </code>
+                </div>
+                <br>
+
+                Else copy this file:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cp PATH/log/arpon.log /tmp/report
+                </code>
+                </div>
+                <br>
+
+                where PATH is the path of your installation.
+                </li>
+                <br>
+
+                <li>
+                Make a tarball of your report:
+                <br><br>
+                <div id="shell">
+                <code>
+                $ cd /tmp
+                <br>
+                $ tar -pcvzf report.tar.gz report
+                <br>
+                report/
+                <br>
+                report/distro.log
+                <br>
+                report/arpon.log
+                <br>
+                report/os.log
+                <br>
+                report/stacktrace.log
+                <br>
+                report/VERSION
+                </code>
+                </div>
+                </li>
+                <br>
+
+                <li>
+                Send the report.tar.gz tarball to <a href="index.html#25">author</a> or via the <a href="http://sourceforge.net/p/arpon/bugs/" target=”_blank”>Bug tracking system</a>.
+                </li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="24"><font color="#737373">24. Support the project</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                We are always happy about <b>donations</b> in any form.
+                <br><br>
+
+                If you are a corporate user, vendor or private user, we would gladly accept any donations, either monetary or in goods (network hardware, etc). We assure you that any donation we receive is very much appreciated and used for further development of ArpON software.
+                <br><br>
+                If you are interested in making a donation, please contact the <a href="index.html#25">author</a>.
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="25"><font color="#737373">25. Author</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                ArpON was writen by Andrea Di Pasquale aka "spikey" &lt;<a href="mailto:spikey.it@gmail.com">spikey.it@gmail.com</a>&gt;.
+                <br><br>
+
+                <a href="http://it.linkedin.com/pub/andrea-di-pasquale/1b/3b0/252/" target="_blank"><img src="img/profile.jpg" style="width: 15%; margin-left:39px" /></a>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="26"><font color="#737373">26. Copyright and licensing</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                Copyright &copy; 2008-2016 Andrea Di Pasquale &lt;<a href="mailto:spikey.it@gmail.com">spikey.it@gmail.com</a>&gt;
+                <br>
+                All rights reserved.
+                <br><br>
+                Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+                <br>
+
+                <ol>
+                <li>
+                Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+                </li>
+                <br>
+
+                <li>
+                Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+                </li>
+                </ol>
+
+                THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR HIS RELATIVES BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF MIND, USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="27"><font color="#737373">27. Thanks</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The list of the <b>contributors</b> to the project is available in:
+                <br>
+
+                <div id="shell" style="margin-left: 39px;">
+                <code>
+                $ cat /path/to/arpon/THANKS
+                </code>
+                </div>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="28"><font color="#737373">28. Reference website</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The reference website of ArpON project is <a href="http://arpon.sourceforge.net" target="_blank">here</a>.
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+
+        <div class="post">
+            <h2 class="title"><a name="29"><font color="#737373">29. Notes</font></a></h2>
+            <div class="entry" align="justify">
+                <p>
+                The ArpON daemon is completely compatible with the ARP standardized protocol as described in these official <b>RFC</b> documents:
+                <br>
+
+                <ol>
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc826" target=”_blank”>RFC 826</a></b>;
+                </li>
+
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc2131" target=”_blank”>RFC 2131</a></b>;
+                </li>
+
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc3927" target=”_blank”>RFC 3927</a></b>;
+                </li>
+
+                <li>
+                <b><a href="http://tools.ietf.org/html/rfc5227" target=”_blank”>RFC 5227</a></b>.
+                </li>
+                </ol>
+
+                The ArpON daemon sets the arp_ignore and the arp_accept fundamental kernel network parameters via the <b>sysctl</b> interface as described in this official kernel document:
+                <br>
+
+                <ol>
+                <li>
+                <b><a href="http://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt" target=”_blank”>IP sysctl</a></b>.
+                </li>
+                </ol>
+                </p>
+            </div>
+            <p class="meta"><a href="#TOP" class="permalink">Top</a></p>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <p>
+    Copyright &copy; 2008-2016 Andrea Di Pasquale &lt;<a href="mailto:spikey.it@gmail.com">spikey.it@gmail.com</a>&gt;
+    <br>
+    Design based on a template by <a href="http://www.freecsstemplates.org/" target=”_blank”>Free CSS Templates</a>
+    </p>
+    <br>
+</div>
+</body>
+</html>
+
+<!--
+    EOF
+
+    vim:ts=4:expandtab
+-->

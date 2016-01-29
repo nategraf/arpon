@@ -1,0 +1,1640 @@
+================================================================================
+
+                    d8888                   .d88888b.  888b    888
+                   d88888                  d88P" "Y88b 8888b   888
+                  d88P888                  888     888 88888b  888
+                 d88P 888 888d888 88888b.  888     888 888Y88b 888
+                d88P  888 888P"   888 "88b 888     888 888 Y88b888
+               d88P   888 888     888  888 888     888 888  Y88888
+              d8888888888 888     888 d88P Y88b. .d88P 888   Y8888
+             d88P     888 888     88888P"   "Y88888P"  888    Y888
+                                  888
+                                  888
+                                  888
+
+                            ARP handler inspection
+
+                        (http://arpon.sourceforge.net)
+
+        Copyright (C) 2008-2016 Andrea Di Pasquale <spikey.it@gmail.com>
+
+================================================================================
+    INDEX
+================================================================================
+
+    1. IMPORTANT NOTICE
+    2. WHAT IS ARPON?
+    3. FEATURES
+    4. SUPPORTED OPERATING SYSTEMS
+    5. REQUIRED SOFTWARE AND LIBRARIES
+    6. STABLE RELEASE VIA THE HTTP MIRROR
+    7. VERSION
+    8. CHANGELOG
+    9. BUILDING AND INSTALLATION
+    10. UPGRADE
+    11. QUICK START
+    12. ARPON DAEMON
+    13. IMPORTANT NOTE
+    14. OPTIONS SUMMARY
+    15. FILES
+    16. EXAMPLES
+    17. HOW TO USE ARPON
+    18. UNINSTALLATION
+    19. SUPPORT THE DEVELOPMENT
+    20. DEVELOPMENT RELEASE VIA THE GIT REPOSITORY
+    21. ACTIVITY DIAGRAMS
+    22. COMPILE TIME BUGS
+    23. RUNTIME BUGS
+    24. SUPPORT THE PROJECT
+    25. AUTHOR
+    26. COPYRIGHT AND LICENSING
+    27. THANKS
+    28. REFERENCE WEBSITE
+    29. NOTES
+
+================================================================================
+    1. IMPORTANT NOTICE
+================================================================================
+
+Since ArpON 3.0-ng (next generation), ArpON has been rewritten from scratch,
+therefore all the old versions of ArpON (lower of 3.0-ng) are deprecated.
+Please upgrade all installations of ArpON and read carefully the documentation
+and the man page of ArpON.
+
+================================================================================
+    2. WHAT IS ARPON?
+================================================================================
+
+ArpON (ARP handler inspection) is a Host-based solution that make the ARP
+standardized protocol secure in order to avoid the Man In The Middle (MITM)
+attack through the ARP spoofing, ARP cache poisoning or ARP poison routing
+attack.
+
+This is possible using three kinds of anti ARP spoofing techniques:
+
+    1. SARPI (Static ARP Inspection) for the statically configured networks
+       without DHCP;
+    2. DARPI (Dynamic ARP Inspection) for the dynamically configured networks
+       with DHCP;
+    3. HARPI (Hybrid ARP Inspection) for the statically and dynamically
+       configured networks with DHCP.
+
+The goal of ArpON is therefore to provide a secure and efficient network daemon
+that provides the SARPI, DARPI and HARPI anti ARP spoofing technique, thus
+making the ARP standardized protocol secure from any foreign intrusion.
+
+================================================================================
+    3. FEATURES
+================================================================================
+
+The features of ArpON are:
+
+    • FREE. ArpON is released under the BSD open source license. This means that
+      you have total freedom to modify and use it with your system, even if it's
+      commercial.
+
+    • POPULAR. ArpON is used as the network daemon by many users, both the
+      network managers and academic researchers. ArpON is downloaded several
+      hundred of times every month.
+
+    • TESTED AND RELIABLE. Many users have contributed over the years in testing
+      ArpON on a wide range of Man In The Middle (MITM) attack tools through the
+      ARP spoofing, ARP cache poisoning or ARP poison routing.
+
+    • EASY TO USE. ArpON is distributed as a single tarball that once compiled,
+      runs on every supported Operating System. You launch the executable, and
+      from that moment the Operating System is able to avoid the Man In The
+      Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP
+      poison routing.
+
+    • MULTI-PLATFORM. Many developers have contributed over the years in porting
+      ArpON on a wide range of GNU/Linux distributions.
+
+    • COMPATIBLE AND PORTABLE. ArpON is completely compatible with the ARP
+      standardized protocol. ArpON is an network daemon that runs in user space,
+      this also means that ArpON will be easily portable to other Operating
+      Systems.
+
+    • WELL DOCUMENTED. The documentation of ArpON is easy and complete. The
+      documentation contains the retrieving tutorial; the building tutorial; the
+      installation tutorial; the user tutorial with many examples and scenarios;
+      the development tutorial with the Activity diagrams of the SARPI, DARPI
+      and HARPI anti ARP spoofing technique and with modular source code well
+      commented; the bug report tutorial that takes you step-by-step through all
+      of the features of ArpON.
+
+================================================================================
+    4. SUPPORTED OPERATING SYSTEMS
+================================================================================
+
+ArpON supports the GNU/Linux Operating System and a wide range of distributions.
+
+================================================================================
+    5. REQUIRED SOFTWARE AND LIBRARIES
+================================================================================
+
+The source code compilation of the stable release of ArpON requires the
+following software and libraries installed in the System:
+
+    • GNU Binutils:
+
+        http://sourceware.org/binutils/
+
+    • GNU C Compiler (GCC):
+
+        http://gcc.gnu.org
+
+    • Cmake 2.6 (or higher):
+
+        http://cmake.org
+
+    • GNU Make:
+
+        http://www.gnu.org/software/make/
+
+    • GNU C Library (Glibc) with POSIX Threads (Pthreads):
+
+        http://www.gnu.org/software/libc/libc.html
+
+    • GNU C Library (Glibc) with Realtime Extensions (Librt):
+
+        http://www.gnu.org/software/libc/libc.html
+
+    • Libpcap with development libraries 1.0.0 (or higher):
+
+        http://www.tcpdump.org
+
+    • Libnet1 with development libraries 1.1.2.1 (or higher):
+
+        http://packetfactory.openwall.net/projects/libnet/
+
+    • Libdnet with development libraries 1.11 (or higher):
+
+        http://libdnet.sourceforge.net
+
+The development release of ArpON also requires the following software installed
+in the System:
+
+    • Git:
+
+        http://git-scm.com
+
+    • GNU C Debugger (GDB):
+
+        http://sourceware.org/gdb/
+
+The documentation of ArpON also requires the following software installed in the
+System:
+
+    • Visual Paradigm:
+
+        http://www.visual-paradigm.com
+
+    • OpenOffice Draw:
+
+        http://www.openoffice.org
+
+    • VRT Network Equipment:
+
+        http://www.vrt.com.au/downloads/vrt-network-equipment/
+
+================================================================================
+    6. STABLE RELEASE VIA THE HTTP MIRROR
+================================================================================
+
+The latest stable release of ArpON is available via the HTTP mirror, please
+follow these steps:
+
+    1. First you have to download the tarball via the HTTP mirror:
+
+        $ wget http://sourceforge.net/projects/arpon/files/latest/download \
+        -O arpon.tar.gz
+
+    2. After you have successfully downloaded the tarball, download the MD5 file
+       of the tarball via the HTTP mirror:
+
+        $ wget http://sourceforge.net/projects/arpon/files/latest.md5/download \
+        -O latest.md5
+
+    3. Generate the MD5 of your tarball downloaded:
+
+        $ md5sum arpon.tar.gz | awk '{print $1}' > arpon.md5
+
+    4. Validate the MD5 of your tarball downloaded:
+
+        $ diff -u latest.md5 arpon.md5
+
+       If you have not the output of the diff, the tarball downloaded is valid.
+
+    5. If the tarball si valid, untar the tarball downloaded:
+
+        $ mkdir arpon
+        $ tar -xvzf arpon.tar.gz -C arpon --strip-components=1
+
+    6. After you have successfully downloaded and validated the tarball then
+       you must initiate the building and installation.
+
+================================================================================
+    7. VERSION
+================================================================================
+
+The version of ArpON is available in:
+
+    $ cat /path/to/arpon/VERSION
+
+================================================================================
+    8. CHANGELOG
+================================================================================
+
+The changelog of ArpON is available in:
+
+    $ cat /path/to/arpon/CHANGELOG
+
+================================================================================
+    9. BUILDING AND INSTALLATION
+================================================================================
+
+To build and install the ArpON, please follow these steps:
+
+    • To install the ArpON in the default "/" path:
+
+        $ cd /path/to/arpon
+        $ mkdir build
+        $ cd build
+        $ cmake ..
+        $ make
+        $ sudo make install
+
+    • To install the ArpON in an other path:
+
+        $ cd /path/to/arpon
+        $ mkdir build
+        $ cd build
+        $ cmake -DCMAKE_INSTALL_PREFIX="/path/to/install" ..
+        $ make
+        $ sudo make install
+
+      Usually the paths of the installation are: "/", "/usr" or "/usr/local".
+
+    • If the your dependencies are installed in the other paths:
+
+        $ cd /path/to/arpon
+        $ mkdir build
+        $ cd build
+        $ cmake -DCMAKE_INCLUDE_PATH="/path/to/include1;/path/to/include2" \
+          -DCMAKE_LIBRARY_PATH="/path/to/library1;/path/to/library2" ..
+        $ make
+        $ sudo make install
+
+    • If you want personalize the CFLAGS compiler parameters:
+
+        $ cd /path/to/arpon
+        $ mkdir build
+        $ cd build/
+        $ cmake -DCMAKE_C_FLAGS="your-cflags-here" ..
+        $ make
+        $ sudo make install
+
+================================================================================
+    10. UPGRADE
+================================================================================
+
+To upgrade the ArpON, please follow the steps of the building and installation
+(with the same path of your previous installation of ArpON) that will overwrite
+all the files of ArpON.
+
+================================================================================
+    11. QUICK START
+================================================================================
+
+To start quickly with ArpON, please follow these guidelines:
+
+    1. See the documentation file of ArpON. It contains the retrieving tutorial;
+       the building tutorial; the installation tutorial; the user tutorial with
+       many examples and scenarios; the development tutorial with the Activity
+       diagrams of the SARPI, DARPI and HARPI anti ARP spoofing technique and
+       with modular source code well commented; the bug report tutorial that
+       takes you step-by-step through all of the features of ArpON. Please note
+       that:
+
+       If you chose the default "/" path of the installation, open with a
+       browser web this file:
+
+        /usr/share/doc/arpon/index.html
+
+       Else open with a browser web this file:
+
+        PATH/share/doc/arpon/index.html
+
+       where PATH is the path of your installation.
+
+    2. See the man page of ArpON:
+
+        $ man 8 arpon
+
+    3. See the help screen of ArpON:
+
+        $ sudo arpon -h
+
+================================================================================
+    12. ARPON DAEMON
+================================================================================
+
+The synopsis of ArpON daemon command is:
+
+    arpon [OPTIONS] [SARPI | DARPI | HARPI]
+
+ArpON sets of policies in the ARP cache for all the static and or dynamic
+entries matching the specified network interface (or that matching the several
+specified network interfaces if run concurrently several daemons of ArpON for
+different network interfaces), through the run of SARPI, DARPI or HARPI anti
+ARP spoofing technique.
+
+ArpON have to be run with the root privileges. ArpON have to be configured using
+command-line options and a configuration file. ArpON reloads the configuration
+of the specified network interface and rereads its configuration file when it
+receives a hangup signal (SIGHUP) by executing itself with the name and options
+it was started with. ArpON exits correctly when it receives an interrupt signal
+(SIGINT) or a termination signal (SIGTERM).
+
+================================================================================
+    13. IMPORTANT NOTE
+================================================================================
+
+The ArpON daemon sets two fundamental kernel network parameters via the sysctl
+interface on the specified network interface:
+
+    1. The arp_ignore kernel parameter of the specified network interface is
+    always setted to 8 by ArpON. This is done to disable, in the specified
+    network interface of the Operating System, the sending of the ARP replies in
+    response to received ARP requests for all local addresses (the ARP replies
+    on the specified network interface, will be sent by ArpON instead of the
+    Operating System).
+
+    2. The arp_accept kernel parameter of the specified network interface is
+    always setted to 0 by ArpON. This is done to disable, in the specified
+    network interface of the Operating System, the creating of the new IP
+    entries in the ARP cache triggered by the unsolicited and gratuitous ARP
+    requests and replies (the IP entries in the ARP cache on the specified
+    network interface, will be created or updated by ArpON as static or dynamic
+    IP entries instead of the Operating System).
+
+The ArpON daemon restores the previously values read from the arp_ignore and
+arp_accept kernel parameters of the specified network interface when it receives
+an interrupt signal (SIGINT) or a termination signal (SIGTERM). Remember to
+restore the values of the arp_ignore and arp_accept kernel parameters of the
+specified network interface (the default values are 0 for both), if you have
+terminated the ArpON daemon with other signals, e.g. kill signal (SIGKILL).
+
+================================================================================
+    14. OPTIONS SUMMARY
+================================================================================
+
+The available options of ArpON daemon command are:
+
+    • General options:
+
+        -d, --daemon
+        Daemonize the ArpON.
+
+        -i, --interface <interface>
+        Use the specified network interface.
+
+    • SARPI 'Static ARP Inspection' option:
+
+      SARPI anti ARP spoofing technique manages and sets the policies in the ARP
+      cache only for all the static entries matching the specified network
+      interface, in order to avoid the Man In The Middle (MITM) attack through
+      the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore
+      SARPI is an optimal choice in those statically configured networks
+      without DHCP. SARPI sets these policies:
+
+      1) CLEAN: SARPI cleans from the ARP cache only all the entries matching
+         the specified network interface, that are present or not present in the
+         configuration file;
+      2) UPDATE: SARPI updates in the ARP cache only all the static entries
+         matching the specified network interface, that are present in the
+         configuration file;
+      3) REFRESH: SARPI refreshes in the ARP cache only a static entry matching
+         the specified network interface, that is present in the configuration
+         file;
+      4) ALLOW: SARPI sets up in the ARP cache only a dynamic entry matching the
+         specified network interface, that is not present in the configuration
+         file.
+
+      Therefore SARPI requires a specified network interface and the
+      specification in the configuration file of the ARP cache only for all the
+      static entries matching the specified network interface.
+
+        -S, --sarpi
+        Run SARPI anti ARP spoofing technique.
+
+    • DARPI 'Dynamic ARP Inspection' option:
+
+      DARPI anti ARP spoofing technique manages and sets the policies in the ARP
+      cache only for all the dynamic entries matching the specified network
+      interface, in order to avoid the Man In The Middle (MITM) attack through
+      the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore
+      DARPI is an optimal choice in those dynamically configured networks with
+      DHCP. DARPI sets these policies:
+
+      1) CLEAN: DARPI cleans from the ARP cache only all the entries matching
+         the specified network interface;
+      2) ALLOW: DARPI sets up in the ARP cache only a dynamic entry matching
+         the specified network interface;
+      3) DENY: DARPI cleans up from the ARP cache only a dynamic entry matching
+         the specified network interface.
+
+      Therefore DARPI requires a specified network interface and it doesn't
+      requires any specification in the configuration file of the ARP cache only
+      for all the dynamic entries matching the specified network interface.
+
+        -D, --darpi
+        Run DARPI anti ARP spoofing technique.
+
+    • HARPI 'Hybrid ARP Inspection' option:
+
+      HARPI anti ARP spoofing technique manages and sets the policies in the ARP
+      cache for both all the static and dynamic entries matching the specified
+      network interface, in order to avoid the Man In The Middle (MITM) attack
+      through the ARP spoofing, ARP cache poisoning or ARP poison routing.
+      Therefore HARPI is an optimal choice in those statically and dynamically
+      configured networks with DHCP. HARPI sets and combines these policies of
+      the SARPI and DARPI:
+
+      1) CLEAN: HARPI cleans from the ARP cache only all the entries matching
+         the specified network interface, that are present or not present in the
+         configuration file;
+      2) UPDATE: HARPI updates in the ARP cache only all the static entries
+         matching the specified network interface, that are present in the
+         configuration file;
+      3) REFRESH: HARPI refreshes in the ARP cache only a static entry matching
+         the specified network interface, that is present in the configuration
+         file;
+      4) ALLOW: HARPI sets up in the ARP cache only a dynamic entry matching
+         the specified network interface, that is not present in the
+         configuration file;
+      5) DENY: HARPI cleans up from the ARP cache only a dynamic entry matching
+         the specified network interface, that is not present in the
+         configuration file.
+
+      Therefore HARPI requires a specified network interface, the specification
+      in the configuration file of the ARP cache only for all the static entries
+      matching the specified network interface; instead it doesn't requires any
+      specification in the configuration file of the ARP cache only for all the
+      dynamic entries matching the specified network interface.
+
+        -H, --harpi
+        Run HARPI anti ARP spoofing technique.
+
+    • Standard options:
+
+        -v, --version
+        Print the version and exit.
+
+        -h, --help
+        Print the help screen and exit.
+
+================================================================================
+    15. FILES
+================================================================================
+
+The available files of ArpON daemon command are:
+
+    • The configuration file contains the configuration data of ArpON and it is
+      used when run the SARPI or HARPI anti ARP spoofing technique, for the
+      specification in the ARP cache only for all the static entries matching
+      the specified network interface (or that matching the several specified
+      network interfaces if run concurrently several daemons of ArpON for
+      different network interfaces). This file should be writable by root only
+      but it is recommended (though not necessary) that it be world-readable.
+      Please note that:
+
+      If you chose the default "/" path of the installation, the configuration
+      file is:
+
+        /etc/arpon.conf
+
+      Else the configuration file is:
+
+        PATH/etc/arpon.conf
+
+      where PATH is the path of your installation.
+
+    • The log file contains the log data of ArpON. If there are several
+      daemons of ArpON running concurrently for different network interfaces,
+      this contains the log data of all the daemons of ArpON. This file should
+      be readable only by root, and need not be readable by anyone else. Please
+      note that:
+
+      If you chose the default "/" path of the installation, the log file is:
+
+        /var/log/arpon.log
+
+      Else the log file is:
+
+        PATH/log/arpon.log
+
+      where PATH is the path of your installation.
+
+    • The pid file contains the process ID of ArpON. If there are several
+      daemons of ArpON running concurrently for different network interfaces,
+      this contains the process ID of the one started last. The content of this
+      file is not sensitive; it can be world-readable. Please note that:
+
+      If you chose the default "/" path of the installation, the pid file is:
+
+        /var/run/arpon.pid
+
+      Else the pid file is:
+
+        PATH/run/arpon.pid
+
+      where PATH is the path of your installation.
+
+================================================================================
+    16. EXAMPLES
+================================================================================
+
+These examples shows how to use all three kinds of anti ARP spoofing techniques
+of ArpON daemon. Note that these examples use the default "/" path of the
+installation of the files.
+
+In the same host, we have three network interfaces with different subnet classes
+and we would set the ARP cache for all the static and dynamic entries matching
+the eth0, wlan0 and eth1 network interfaces. This scenario requires the run
+concurrently of three daemons of ArpON:
+
+    • SARPI 'Static ARP Inspection' example:
+
+      The eth0 network interface has the 192.168.1.2/24 IP address. We have only
+      three static entries of the ARP cache:
+
+      1) 192.168.1.1 at 58:ac:78:10:b9:77;
+      2) 192.168.1.3 at d4:be:d9:fe:8b:45;
+      3) 192.168.1.4 at 90:94:e4:bb:1c:10.
+
+      and we have no dynamic entries of the ARP cache. This is the ideal case
+      where we have to use the SARPI anti ARP spoofing technique, therefore
+      specify in the configuration file of the ARP cache only all the static
+      entries matching the eth0 network interface:
+
+        $ sudo nano /etc/arpon.conf
+
+      Therefore:
+
+        #
+        # ArpON configuration file.
+        #
+        # See the arpon(8) man page for details.
+        #
+
+        #
+        # Static entries matching the eth0 network interface:
+        #
+        # First static entry:
+        192.168.1.1     58:ac:78:10:b9:77
+        # Second static entry:
+        192.168.1.3     d4:be:d9:fe:8b:45
+        # Third static entry:
+        192.168.1.4     90:94:e4:bb:1c:10
+
+      Daemonize the ArpON and run SARPI anti ARP spoofing technique on the eth0
+      network interface:
+
+        $ sudo arpon -d -i eth0 -S
+
+      Read the log file:
+
+        $ sudo tail -f /var/log/arpon.log
+
+      Read the pid file:
+
+        $ cat /var/run/arpon.pid
+
+    • DARPI 'Dynamic ARP Inspection' example:
+
+      The wlan0 network interface has the 172.16.1.2/24 IP address. We have no
+      static entries of the ARP cache, and we have only dynamic entries of the
+      ARP cache. This is the ideal case where we have to use the DARPI anti ARP
+      spoofing technique, therefore daemonize the ArpON and run DARPI anti ARP
+      spoofing technique on the wlan0 network interface:
+
+        $ sudo arpon -d -i wlan0 -D
+
+      Read the log file:
+
+        $ sudo tail -f /var/log/arpon.log
+
+      Read the pid file:
+
+        $ cat /var/run/arpon.pid
+
+    • HARPI 'Hybrid ARP Inspection' example:
+
+      The eth1 network interface has the 10.0.1.2/16 IP address. We have only
+      two static entries of the ARP cache:
+
+      1) 10.0.1.1 at 58:ac:78:88:1a:bb;
+      2) 10.0.10.1 at 90:94:e4:7e:f4:59.
+
+      and we have the rest of entries as dynamic entries of the ARP cache. This
+      is the ideal case where we have to use the HARPI anti ARP spoofing
+      technique, therefore specify in the configuration file of the ARP cache
+      only all the static entries matching the eth1 network interface:
+
+        $ sudo nano /etc/arpon.conf
+
+      Therefore:
+
+        #
+        # ArpON configuration file.
+        #
+        # See the arpon(8) man page for details.
+        #
+
+        #
+        # Static entries matching the eth0 network interface:
+        #
+        # First static entry:
+        192.168.1.1     58:ac:78:10:b9:77
+        # Second static entry:
+        192.168.1.3     d4:be:d9:fe:8b:45
+        # Third static entry:
+        192.168.1.4     90:94:e4:bb:1c:10
+
+        #
+        # Static entries matching the eth1 network interface:
+        #
+        # First static entry:
+        10.0.1.1        58:ac:78:88:1a:bb
+        # Second static entry:
+        10.0.10.1       90:94:e4:7e:f4:59
+
+      Daemonize the ArpON and run HARPI anti ARP spoofing technique on the eth1
+      network interface:
+
+        $ sudo arpon -d -i eth1 -H
+
+      Read the log file:
+
+        $ sudo tail -f /var/log/arpon.log
+
+      Read the pid file:
+
+        $ cat /var/run/arpon.pid
+
+================================================================================
+    17. HOW TO USE ARPON
+================================================================================
+
+The available scenarios of ArpON, that explain respectively how ArpON works and
+how to use ArpON are:
+
+    • Half-duplex ArpON defense:
+
+      This scenario shows the half-duplex Man In The Middle (half-duplex MITM)
+      attack through the ARP spoofing. The attacker is attacking only the host
+      A, therefore the attacker is intercepting only the communications from the
+      host A to host B:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/scenario/halfduplexattack.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/scenario/halfduplexattack.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/scenario/halfduplexattack.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/scenario/halfduplexattack.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/scenario/halfduplexattack.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/scenario/halfduplexattack.odg
+
+      Run the ArpON only in the host A in order to avoid the half-duplex attack:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/scenario/halfduplexdefense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/scenario/halfduplexdefense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/scenario/halfduplexdefense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/scenario/halfduplexdefense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/scenario/halfduplexdefense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/scenario/halfduplexdefense.odg
+
+      The communications between the host A and the host B are back again
+      secure, leaving the attacker out.
+
+    • Full-duplex ArpON defense:
+
+      This scenario shows the full-duplex Man In The Middle (full-duplex MITM)
+      attack through the ARP spoofing. The attacker is attacking both the host
+      A and the host B, therefore the attacker is intercepting all the
+      communications between the host A and the host B:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexattack.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexattack.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexattack.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexattack.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexattack.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexattack.odg
+
+      Run the ArpON only in the host A in order to avoid the half-duplex attack:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexhalfdefense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexhalfdefense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexhalfdefense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexhalfdefense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexhalfdefense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexhalfdefense.odg
+
+      The communications from the host A to host B are back again secure,
+      leaving the attacker out. Finally, run the ArpON also in the host B in
+      order to avoid the full-duplex attack:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexfulldefense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexfulldefense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/scenario/fullduplexfulldefense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexfulldefense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexfulldefense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/scenario/fullduplexfulldefense.odg
+
+      The communications between the host A and the host B are back again
+      secure, leaving the attacker out.
+
+================================================================================
+    18. UNINSTALLATION
+================================================================================
+
+To uninstall ArpON:
+
+    $ cd /path/to/arpon/build
+    $ sudo make uninstall
+
+================================================================================
+    19. SUPPORT THE DEVELOPMENT
+================================================================================
+
+If you are a developer and you wish write any fix, feature or OS port of ArpON,
+please follow these steps, make it available under the BSD open source license
+and contribute to the project sending the patch:
+
+    1. Clone or pull via the GIT repository and use the latest development
+       release of ArpON.
+    2. Understand the Activity diagrams of ArpON, that explain respectively the
+       algorithms and the policies of SARPI, DARPI and HARPI anti ARP spoofing
+       technique.
+    3. Create a new devel branch and personalize the build type from Release to
+       Debug:
+
+        $ cd /path/to/arpon
+        $ git checkout -b devel
+        $ mkdir debug
+        $ cd debug
+        $ cmake -DCMAKE_BUILD_TYPE="debug" ..
+        $ make VERBOSE=1
+
+    4. Before to see any codes, study and adhere the FreeBSD encoding standard:
+
+        https://www.freebsd.org/cgi/man.cgi?query=style&sektion=9
+
+    5. Write any fix, feature or OS port for ArpON and test it in Debug build
+       type:
+
+        $ cd /path/to/arpon
+        $ vim file_to_edit_1 file_to_edit_2 file_to_edit_N
+        $ cd /path/to/arpon/debug
+        $ make VERBOSE=1
+        $ sudo make install
+        $ sudo arpon [OPTIONS] [SARPI | DARPI | HARPI]
+
+    6. Switch the build type from Debug to Release and test, test and test it
+       again in Release build type:
+
+        $ cd /path/to/arpon/debug
+        $ sudo make uninstall
+        $ cd ..
+        $ mkdir release
+        $ cd release
+        $ cmake -DCMAKE_BUILD_TYPE="release" ..
+        $ make
+        $ sudo make install
+        $ sudo arpon [OPTIONS] [SARPI | DARPI | HARPI]
+
+    7. Commit the changes into devel branch and create the patch:
+
+        $ cd /path/to/arpon/
+        $ rm -Rf debug release
+        $ git add -A
+        $ git commit -m "Describe your patch"
+        $ git format-patch master --stdout > patch.diff
+
+    8. Send the created patch.diff file with any details to author or via the
+       Bug tracking system:
+
+        http://sourceforge.net/p/arpon/bugs/
+
+    9. The author will review the code, make any necessary changes and merge the
+       code into the proper branch.
+    10. You will receive full credit as a contributor to the project.
+
+================================================================================
+    20. DEVELOPMENT RELEASE VIA THE GIT REPOSITORY
+================================================================================
+
+The latest development release of ArpON is available via the GIT repository:
+
+    http://sourceforge.net/p/arpon/code/ci/master/tree/
+
+Please follow these steps:
+
+    1. First you have to clone the project via the GIT repository:
+
+        $ git clone git://git.code.sourceforge.net/p/arpon/code arpon
+        $ cd arpon
+
+    Or via the GIT repository over HTTP protocol:
+
+        $ git clone http://git.code.sourceforge.net/p/arpon/code arpon
+        $ cd arpon
+
+    2. If you already had the repository cloned, you will need to pull the
+       latest changes:
+
+        $ cd /path/to/arpon
+        $ git pull
+
+    3. After you have successfully cloned or pulled the repository then you must
+       initiate the building and installation.
+
+================================================================================
+    21. ACTIVITY DIAGRAMS
+================================================================================
+
+All the available algorithms of ArpON are compatible with the ARP standardized
+protocol as described in these official RFC documents:
+
+    1. RFC 826:
+
+        http://tools.ietf.org/html/rfc826
+
+    2. RFC 2131:
+
+        http://tools.ietf.org/html/rfc2131
+
+    3. RFC 3927:
+
+        http://tools.ietf.org/html/rfc3927
+
+    4. RFC 5227:
+
+        http://tools.ietf.org/html/rfc5227
+
+Note that all the available algorithms of ArpON set the arp_ignore and the
+arp_accept fundamental kernel network parameters via the sysctl interface as
+described in this official kernel document:
+
+    1. IP sysctl:
+
+        http://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+
+Therefore the available Activity diagrams of ArpON, that explain respectively
+the algorithms and the policies of all three kinds of anti ARP spoofing
+techniques are:
+
+    • SARPI 'Static ARP Inspection' Activity diagram:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/uml/SARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/uml/SARPI.pdf
+
+      or open with the Visual paradigm application this file:
+
+        /usr/share/doc/arpon/uml/SARPI.vpp
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/uml/SARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/uml/SARPI.pdf
+
+      or open with the Visual paradigm application this file:
+
+        PATH/share/doc/arpon/uml/SARPI.vpp
+
+      To understand the SARPI 'Static ARP Inspection' Activity diagram, it is
+      very important to understand this network diagram, that show a simple
+      case of execution of the SARPI algorithm, in order to permit the
+      communication between the host A (with a static IP address) and the host
+      B (with a static IP address):
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/SARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/SARPI.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/SARPI.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/SARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/SARPI.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/SARPI.odg
+
+      Instead this network diagram shows a simple case of execution of the
+      SARPI algorithm, in order to permit the communication between the host A
+      (with a static IP address) and the host B (with a static IP address),
+      leaving the host C (attacker) out from the communication:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/SARPI_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/SARPI_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/SARPI_defense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/SARPI_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/SARPI_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/SARPI_defense.odg
+
+    • DARPI 'Dynamic ARP Inspection' Activity diagram:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/uml/DARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/uml/DARPI.pdf
+
+      or open with the Visual paradigm application this file:
+
+        /usr/share/doc/arpon/uml/DARPI.vpp
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/uml/DARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/uml/DARPI.pdf
+
+      or open with the Visual paradigm application this file:
+
+        PATH/share/doc/arpon/uml/DARPI.vpp
+
+      To understand the DARPI 'Dynamic ARP Inspection' Activity diagram, it is
+      very important to understand this network diagram, that show a simple
+      case of execution of the DARPI algorithm, in order to permit the
+      communication between the host A (with a dynamic IP address) and the host
+      B (with a dynamic IP address), checking any network errors:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/DARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/DARPI.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/DARPI.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/DARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/DARPI.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/DARPI.odg
+
+      Instead this network diagram shows a simple case of execution of the
+      DARPI algorithm, in order to permit the communication between the host A
+      (with a dynamic IP address) and the host B (with a dynamic IP address),
+      leaving the host C (attacker) out from the communication:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/DARPI_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/DARPI_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/DARPI_defense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/DARPI_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/DARPI_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/DARPI_defense.odg
+
+    • HARPI 'Hybrid ARP Inspection' Activity diagram that combines the SARPI and
+      DARPI Activity diagram:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/uml/HARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/uml/HARPI.pdf
+
+      or open with the Visual paradigm application this file:
+
+        /usr/share/doc/arpon/uml/HARPI.vpp
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/uml/HARPI.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/uml/HARPI.pdf
+
+      or open with the Visual paradigm application this file:
+
+        PATH/share/doc/arpon/uml/HARPI.vpp
+
+      To understand the HARPI 'Hybrid ARP Inspection' Activity diagram, it is
+      very important to understand these network diagrams, where the first one
+      show a simple case of execution of the HARPI algorithm, in order to permit
+      the communication between the host A (with a static IP address) and the
+      host B (with a static IP address):
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_static.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_static.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/HARPI_static.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_static.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_static.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/HARPI_static.odg
+
+      Instead this network diagram shows a simple case of execution of the
+      HARPI algorithm, in order to permit the communication between the host A
+      (with a static IP address) and the host B (with a static IP address),
+      leaving the host C (attacker) out from the communication:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_static_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_static_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/HARPI_static_defense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_static_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_static_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/HARPI_static_defense.odg
+
+      The second one show a simple case of execution of the HARPI algorithm,
+      in order to permit the communication between the host A (with a dynamic
+      IP address) and the host B (with a dynamic IP address), checking any
+      network errors:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_dynamic.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_dynamic.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/HARPI_dynamic.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_dynamic.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_dynamic.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/HARPI_dynamic.odg
+
+      Instead this network diagram shows a simple case of execution of the
+      HARPI algorithm, in order to permit the communication between the host A
+      (with a dynamic IP address) and the host B (with a dynamic IP address),
+      leaving the host C (attacker) out from the communication:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_dynamic_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_dynamic_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/HARPI_dynamic_defense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_dynamic_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_dynamic_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/HARPI_dynamic_defense.odg
+
+      The third one show a simple case of execution of the HARPI algorithm,
+      in order to permit the communication between the host A (with a dynamic
+      IP address) and the host B (with a static IP address), checking any
+      network errors:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_hybrid.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_hybrid.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/HARPI_hybrid.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_hybrid.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_hybrid.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/HARPI_hybrid.odg
+
+      Instead this network diagram shows a simple case of execution of the
+      HARPI algorithm, in order to permit the communication between the host A
+      (with a dynamic IP address) and the host B (with a static IP address),
+      leaving the host C (attacker) out from the communication:
+
+      If you chose the default "/" path of the installation, open with an image
+      viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_hybrid_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        /usr/share/doc/arpon/network/HARPI_hybrid_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        /usr/share/doc/arpon/network/HARPI_hybrid_defense.odg
+
+      Else open with an image viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_hybrid_defense.jpg
+
+      or open with a Pdf viewer application this file:
+
+        PATH/share/doc/arpon/network/HARPI_hybrid_defense.pdf
+
+      or open with the OpenOffice Draw application this file:
+
+        PATH/share/doc/arpon/network/HARPI_hybrid_defense.odg
+
+================================================================================
+    22. COMPILE TIME BUGS
+================================================================================
+
+If you are not able to compile ArpON on your System, please follow these steps
+to make a simple bug report in order to help us to find the bug and fix it:
+
+    1. Clean the ArpON build directory:
+
+        $ cd /path/to/arpon/build
+        $ make clean-all
+
+    2. Create the report directory:
+
+        $ mkdir /tmp/report
+
+We need the following informations:
+
+    1. A description of your Operating System:
+
+        $ uname -a > /tmp/report/os.log
+
+    2. A description of your GNU/Linux distribution:
+
+       If you have the lsb_release command:
+
+        $ lsb_release -a > /tmp/report/distro.log
+
+       Else if you have not the lsb_release command:
+
+        $ cp /etc/os-release /tmp/report/distro.log
+
+       Else if you have not the os-release file put your distribution name:
+
+        $ echo "your-distro-here" > /tmp/report/distro.log
+
+    3. The version of ArpON:
+
+        $ cp ../VERSION /tmp/report
+
+    4. The CMake cache file:
+
+        $ cmake ..
+        $ cp CMakeCache.txt /tmp/report
+
+    5. The entire output from make:
+
+        $ make VERBOSE=1 >> /tmp/report/make_out.log \
+        2>> /tmp/report/make_err.log
+
+    6. Make a tarball of your report:
+
+        $ cd /tmp
+        $ tar -pcvzf report.tar.gz report
+        report/
+        report/distro.log
+        report/os.log
+        report/make_err.log
+        report/CMakeCache.txt
+        report/VERSION
+        report/make_out.log
+
+    7. Send the report.tar.gz tarball to author or via the Bug tracking system:
+
+        http://sourceforge.net/p/arpon/bugs/
+
+================================================================================
+    23. RUNTIME BUGS
+================================================================================
+
+If the bug is critical and results in a segmentation fault, please follow these
+steps to make a detailed bug report in order to help us to find the bug and fix
+it:
+
+    1. Recompile the ArpON in debug build type:
+
+        $ cd /path/to/arpon
+        $ mkdir debug
+        $ cd debug
+        $ cmake -DCMAKE_BUILD_TYPE="debug" ..
+        $ make
+        $ sudo make install
+
+    2. Create the report directory:
+
+        $ mkdir /tmp/report
+
+We need the following informations:
+
+    1. A description of your Operating System:
+
+        $ uname -a > /tmp/report/os.log
+
+    2. A description of your GNU/Linux distribution:
+
+       If you have the lsb_release command:
+
+        $ lsb_release -a > /tmp/report/distro.log
+
+       Else if you have not the lsb_release command:
+
+        $ cp /etc/os-release /tmp/report/distro.log
+
+       Else if you have not the os-release file put your distribution name:
+
+        $ echo "your-distro-here" > /tmp/report/distro.log
+
+    3. The version of ArpON:
+
+        $ cp ../VERSION /tmp/report
+
+    4. The stacktrace of ArpON that reproduces the bug:
+
+       Override any limit for coredumps:
+
+        $ ulimit -c unlimited
+
+       Enter in the directory where there is the ArpON executable:
+
+       If you chose the default "/" path of the installation, enter in:
+
+        $ cd /sbin
+
+       Else enter in:
+
+        $ cd PATH/sbin
+
+       where PATH is the path of your installation.
+
+       Run the ArpON executable and reproduce the bug (it'll create the
+       coredump):
+
+        $ sudo arpon your-parameters-here
+
+       Create the stacktrace of the bug with the gdb and the coredump:
+
+        $ sudo gdb --batch --quiet -ex "thread apply all bt full" -ex "quit" \
+        arpon core >> /tmp/report/stacktrace.log 2>> /tmp/report/stacktrace.log
+
+       Please note that the path of the coredump depends by your OS setting.
+
+    5. The log file of ArpON:
+
+       If you chose the default "/" path of the installation, copy this file:
+
+        $ cp /var/log/arpon.log /tmp/report
+
+       Else copy this file:
+
+        $ cp PATH/log/arpon.log /tmp/report
+
+       where PATH is the path of your installation.
+
+    6. Make a tarball of your report:
+
+        $ cd /tmp
+        $ tar -pcvzf report.tar.gz report
+        report/
+        report/distro.log
+        report/arpon.log
+        report/os.log
+        report/stacktrace.log
+        report/VERSION
+
+    7. Send the report.tar.gz tarball to author or via the Bug tracking system:
+
+        http://sourceforge.net/p/arpon/bugs/
+
+================================================================================
+    24. SUPPORT THE PROJECT
+================================================================================
+We are always happy about donations in any form.
+
+If you are a corporate user, vendor or private user, we would gladly accept any
+donations, either monetary or in goods (network hardware, etc). We assure you
+that any donation we receive is very much appreciated and used for further
+development of ArpON software.
+
+If you are interested in making a donation, please contact the author.
+
+================================================================================
+    25. AUTHOR
+================================================================================
+
+ArpON was writen by Andrea Di Pasquale aka "spikey" <spikey.it@gmail.com>:
+
+    http://it.linkedin.com/pub/andrea-di-pasquale/1b/3b0/252/
+
+================================================================================
+    26. COPYRIGHT AND LICENSING
+================================================================================
+
+Copyright (C) 2008-2016 Andrea Di Pasquale <spikey.it@gmail.com>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR OR HIS RELATIVES BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF MIND, USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+THE POSSIBILITY OF SUCH DAMAGE.
+
+================================================================================
+    27. THANKS
+================================================================================
+
+The list of the contributors to the project is available in:
+
+    $ cat /path/to/arpon/THANKS
+
+================================================================================
+    28. REFERENCE WEBSITE
+================================================================================
+
+The reference website of ArpON project is here:
+
+    http://arpon.sourceforge.net
+
+================================================================================
+    29. NOTES
+================================================================================
+
+The ArpON daemon is completely compatible with the ARP standardized protocol as
+described in these official RFC documents:
+
+    1. RFC 826:
+
+        http://tools.ietf.org/html/rfc826
+
+    2. RFC 2131:
+
+        http://tools.ietf.org/html/rfc2131
+
+    3. RFC 3927:
+
+        http://tools.ietf.org/html/rfc3927
+
+    4. RFC 5227:
+
+        http://tools.ietf.org/html/rfc5227
+
+The ArpON daemon sets the arp_ignore and the arp_accept fundamental kernel
+network parameters via the sysctl interface as described in this official kernel
+document:
+
+    1. IP sysctl:
+
+        http://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+
+================================================================================
+
+vim:ts=4:expandtab
+

@@ -1,0 +1,491 @@
+.\"
+.\" Copyright (C) 2008-2016 Andrea Di Pasquale <spikey.it@gmail.com>
+.\" All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\"
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\"
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+.\" IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+.\" OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+.\" IN NO EVENT SHALL THE AUTHOR OR HIS RELATIVES BE LIABLE FOR ANY DIRECT,
+.\" INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+.\" (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+.\" SERVICES; LOSS OF MIND, USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+.\" HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+.\" STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+.\" IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+.\" THE POSSIBILITY OF SUCH DAMAGE.
+.\"
+.\" $ArpON: arpon.8,v 3.0-ng 01/29/2016 02:54:53 spikey Exp $
+.\"
+.\" Standard preamble:
+.\" ========================================================================
+.de Sh \" Subsection heading
+.br
+.if t .Sp
+.ne 5
+.PP
+\fB\\$1\fR
+.PP
+..
+.de Sp \" Vertical space (when we can't use .PP)
+.if t .sp .5v
+.if n .sp
+..
+.de Vb \" Begin verbatim text
+.ft CW
+.nf
+.ne \\$1
+..
+.de Ve \" End verbatim text
+.ft R
+.fi
+..
+.\" Set up some character translations and predefined strings.  \*(-- will
+.\" give an unbreakable dash, \*(PI will give pi, \*(L" will give a left
+.\" double quote, and \*(R" will give a right double quote.  | will give a
+.\" real vertical bar.  \*(C+ will give a nicer C++.  Capital omega is used to
+.\" do unbreakable dashes and therefore won't be available.  \*(C` and \*(C'
+.\" expand to `' in nroff, nothing in troff, for use with C<>.
+.tr \(*W-|\(bv\*(Tr
+.ds C+ C\v'-.1v'\h'-1p'\s-2+\h'-1p'+\s0\v'.1v'\h'-1p'
+.ie n \{\
+.    ds -- \(*W-
+.    ds PI pi
+.    if (\n(.H=4u)&(1m=24u) .ds -- \(*W\h'-12u'\(*W\h'-12u'-\" diablo 10 pitch
+.    if (\n(.H=4u)&(1m=20u) .ds -- \(*W\h'-12u'\(*W\h'-8u'-\"  diablo 12 pitch
+.    ds L" ""
+.    ds R" ""
+.    ds C` ""
+.    ds C' ""
+'br\}
+.el\{\
+.    ds -- \|\(em\|
+.    ds PI \(*p
+.    ds L" ``
+.    ds R" ''
+'br\}
+.\"
+.\" If the F register is turned on, we'll generate index entries on stderr for
+.\" titles (.TH), headers (.SH), subsections (.Sh), items (.Ip), and index
+.\" entries marked with X<> in POD.  Of course, you'll have to process the
+.\" output yourself in some meaningful fashion.
+.if \nF \{\
+.    de IX
+.    tm Index:\\$1\t\\n%\t"\\$2"
+..
+.    nr % 0
+.    rr F
+.\}
+.\"
+.\" For nroff, turn off justification.  Always turn off hyphenation; it makes
+.\" way too many mistakes in technical documents.
+.hy 0
+.if n .na
+.\"
+.\" Accent mark definitions (@(#)ms.acc 1.5 88/02/08 SMI; from UCB 4.2).
+.\" Fear.  Run.  Save yourself.  No user-serviceable parts.
+.    \" fudge factors for nroff and troff
+.if n \{\
+.    ds #H 0
+.    ds #V .8m
+.    ds #F .3m
+.    ds #[ \f1
+.    ds #] \fP
+.\}
+.if t \{\
+.    ds #H ((1u-(\\\\n(.fu%2u))*.13m)
+.    ds #V .6m
+.    ds #F 0
+.    ds #[ \&
+.    ds #] \&
+.\}
+.    \" simple accents for nroff and troff
+.if n \{\
+.    ds ' \&
+.    ds ` \&
+.    ds ^ \&
+.    ds , \&
+.    ds ~ ~
+.    ds /
+.\}
+.if t \{\
+.    ds ' \\k:\h'-(\\n(.wu*8/10-\*(#H)'\'\h"|\\n:u"
+.    ds ` \\k:\h'-(\\n(.wu*8/10-\*(#H)'\`\h'|\\n:u'
+.    ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'^\h'|\\n:u'
+.    ds , \\k:\h'-(\\n(.wu*8/10)',\h'|\\n:u'
+.    ds ~ \\k:\h'-(\\n(.wu-\*(#H-.1m)'~\h'|\\n:u'
+.    ds / \\k:\h'-(\\n(.wu*8/10-\*(#H)'\z\(sl\h'|\\n:u'
+.\}
+.    \" troff and (daisy-wheel) nroff accents
+.ds : \\k:\h'-(\\n(.wu*8/10-\*(#H+.1m+\*(#F)'\v'-\*(#V'\z.\h'.2m+\*(#F'.\h'|\\n:u'\v'\*(#V'
+.ds 8 \h'\*(#H'\(*b\h'-\*(#H'
+.ds o \\k:\h'-(\\n(.wu+\w'\(de'u-\*(#H)/2u'\v'-.3n'\*(#[\z\(de\v'.3n'\h'|\\n:u'\*(#]
+.ds d- \h'\*(#H'\(pd\h'-\w'~'u'\v'-.25m'\f2\(hy\fP\v'.25m'\h'-\*(#H'
+.ds D- D\\k:\h'-\w'D'u'\v'-.11m'\z\(hy\v'.11m'\h'|\\n:u'
+.ds th \*(#[\v'.3m'\s+1I\s-1\v'-.3m'\h'-(\w'I'u*2/3)'\s-1o\s+1\*(#]
+.ds Th \*(#[\s+2I\s-2\h'-\w'I'u*3/5'\v'-.3m'o\v'.3m'\*(#]
+.ds ae a\h'-(\w'a'u*4/10)'e
+.ds Ae A\h'-(\w'A'u*4/10)'E
+.    \" corrections for vroff
+.if v .ds ~ \\k:\h'-(\\n(.wu*9/10-\*(#H)'\s-2\u~\d\s+2\h'|\\n:u'
+.if v .ds ^ \\k:\h'-(\\n(.wu*10/11-\*(#H)'\v'-.4m'^\v'.4m'\h'|\\n:u'
+.    \" for low resolution devices (crt and lpr)
+.if \n(.H>23 .if \n(.V>19 \
+\{\
+.    ds : e
+.    ds 8 ss
+.    ds o a
+.    ds d- d\h'-1'\(ga
+.    ds D- D\h'-1'\(hy
+.    ds th \o'bp'
+.    ds Th \o'LP'
+.    ds ae ae
+.    ds Ae AE
+.\}
+.rm #[ #] #H #V #F C
+.\" ========================================================================
+.\"
+.\"End of Preamble. Start of man page.
+.TH arpon 8 "29 January 2016" "ArpON 3.0-ng"
+.SH NAME
+\fBArpON\fR \- ARP handler inspection
+.ti +8
+.br
+.ad
+.PP
+.SH IMPORTANT NOTICE
+.PP
+Since ArpON 3.0-ng (next generation), ArpON has been rewritten from scratch, therefore all the old versions of ArpON (lower of 3.0-ng) are deprecated. Please upgrade all installations of ArpON and read carefully the documentation specified below and this man page of ArpON.
+.PP
+.SH SYNOPSIS
+.na
+.B arpon
+[\fBOPTIONS\fR] [\fBSARPI\fR | \fBDARPI\fR | \fBHARPI\fR]
+.br
+.ti +8
+.br
+.ad
+.SH DESCRIPTION
+.LP
+\fBArpON\fR (\fBARP handler inspection\fR) is a Host-based solution that make the ARP standardized protocol secure in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing attack.
+.PP
+This is possible using three kinds of anti ARP spoofing techniques:
+.PP
+1) \fBSARPI\fR (\fBStatic ARP Inspection\fR) for the statically configured networks without DHCP;
+.br
+2) \fBDARPI\fR (\fBDynamic ARP Inspection\fR) for the dynamically configured networks with DHCP;
+.br
+3) \fBHARPI\fR (\fBHybrid ARP Inspection\fR) for the statically and dynamically configured networks with DHCP.
+.PP
+The goal of ArpON is therefore to provide a secure and efficient network daemon that provides the SARPI, DARPI and HARPI anti ARP spoofing technique, thus making the ARP standardized protocol secure from any foreign intrusion.
+.PP
+ArpON sets of policies in the ARP cache for all the static and or dynamic entries matching the specified network interface (or that matching the several specified network interfaces if run concurrently several daemons of ArpON for different network interfaces), through the run of SARPI, DARPI or HARPI anti ARP spoofing technique.
+.PP
+ArpON have to be run with the root privileges. ArpON have to be configured using command-line options and a configuration file. ArpON reloads the configuration of the specified network interface and rereads its configuration file when it receives a hangup signal (SIGHUP) by executing itself with the name and options it was started with. ArpON exits correctly when it receives an interrupt signal (SIGINT) or a termination signal (SIGTERM).
+.PP
+.SH IMPORTANT NOTE
+.PP
+The ArpON daemon sets two fundamental kernel network parameters via the sysctl interface on the specified network interface:
+.PP
+1) The \fBarp_ignore\fR kernel parameter of the specified network interface is always setted to 8 by ArpON. This is done to disable, in the specified network interface of the Operating System, the sending of the ARP replies in response to received ARP requests for all local addresses (the ARP replies on the specified network interface, will be sent by ArpON instead of the Operating System).
+.PP
+2) The \fBarp_accept\fR kernel parameter of the specified network interface is always setted to 0 by ArpON. This is done to disable, in the specified network interface of the Operating System, the creating of the new IP entries in the ARP cache triggered by the unsolicited and gratuitous ARP requests and replies (the IP entries in the ARP cache on the specified network interface, will be created or updated by ArpON as static or dynamic IP entries instead of the Operating System).
+.PP
+The ArpON daemon restores the previously values read from the arp_ignore and arp_accept kernel parameters of the specified network interface when it receives an interrupt signal (SIGINT) or a termination signal (SIGTERM). Remember to restore the values of the arp_ignore and arp_accept kernel parameters of the specified network interface (the default values are 0 for both), if you have terminated the ArpON daemon with other signals, e.g. kill signal (SIGKILL).
+.PP
+.SH OPTIONS SUMMARY
+.PP
+The available options are:
+.PP
+.TP
+.SH GENERAL OPTIONS
+.PP
+.TP
+\-d (\--daemon)
+Daemonize the ArpON.
+.TP
+\-i (\--interface) <interface>
+Use the specified network interface.
+.PP
+.TP
+.SH SARPI 'STATIC ARP INSPECTION' OPTION
+.PP
+SARPI anti ARP spoofing technique manages and sets the policies in the ARP cache only for all the static entries matching the specified network interface, in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore SARPI is an optimal choice in those statically configured networks without DHCP. SARPI sets these policies:
+.PP
+1) \fBCLEAN\fR: SARPI cleans from the ARP cache only all the entries matching the specified network interface, that are present or not present in the configuration file;
+.br
+2) \fBUPDATE\fR: SARPI updates in the ARP cache only all the static entries matching the specified network interface, that are present in the configuration file;
+.br
+3) \fBREFRESH\fR: SARPI refreshes in the ARP cache only a static entry matching the specified network interface, that is present in the configuration file;
+.br
+4) \fBALLOW\fR: SARPI sets up in the ARP cache only a dynamic entry matching the specified network interface, that is not present in the configuration file.
+.PP
+Therefore SARPI requires a specified network interface and the specification in the configuration file of the ARP cache only for all the static entries matching the specified network interface.
+.TP
+\-S (\--sarpi)
+Run SARPI anti ARP spoofing technique.
+.PP
+.TP
+.SH DARPI 'DYNAMIC ARP INSPECTION' OPTION
+.PP
+DARPI anti ARP spoofing technique manages and sets the policies in the ARP cache only for all the dynamic entries matching the specified network interface, in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore DARPI is an optimal choice in those dynamically configured networks with DHCP. DARPI sets these policies:
+.PP
+1) \fBCLEAN\fR: DARPI cleans from the ARP cache only all the entries matching the specified network interface;
+.br
+2) \fBALLOW\fR: DARPI sets up in the ARP cache only a dynamic entry matching the specified network interface;
+.br
+3) \fBDENY\fR: DARPI cleans up from the ARP cache only a dynamic entry matching the specified network interface.
+.PP
+Therefore DARPI requires a specified network interface and it doesn't requires any specification in the configuration file of the ARP cache only for all the dynamic entries matching the specified network interface.
+.TP
+\-D (\--darpi)
+Run DARPI anti ARP spoofing technique.
+.PP
+.TP
+.SH HARPI 'HYBRID ARP INSPECTION' OPTION
+.PP
+HARPI anti ARP spoofing technique manages and sets the policies in the ARP cache for both all the static and dynamic entries matching the specified network interface, in order to avoid the Man In The Middle (MITM) attack through the ARP spoofing, ARP cache poisoning or ARP poison routing. Therefore HARPI is an optimal choice in those statically and dynamically configured networks with DHCP. HARPI sets and combines these policies of the SARPI and DARPI:
+.PP
+1) \fBCLEAN\fR: HARPI cleans from the ARP cache only all the entries matching the specified network interface, that are present or not present in the configuration file;
+.br
+2) \fBUPDATE\fR: HARPI updates in the ARP cache only all the static entries matching the specified network interface, that are present in the configuration file;
+.br
+3) \fBREFRESH\fR: HARPI refreshes in the ARP cache only a static entry matching the specified network interface, that is present in the configuration file;
+.br
+4) \fBALLOW\fR: HARPI sets up in the ARP cache only a dynamic entry matching the specified network interface, that is not present in the configuration file;
+.br
+5) \fBDENY\fR: HARPI cleans up from the ARP cache only a dynamic entry matching the specified network interface, that is not present in the configuration file.
+.PP
+Therefore HARPI requires a specified network interface, the specification in the configuration file of the ARP cache only for all the static entries matching the specified network interface; instead it doesn't requires any specification in the configuration file of the ARP cache only for all the dynamic entries matching the specified network interface.
+.TP
+\-H (\--harpi)
+Run HARPI anti ARP spoofing technique.
+.PP
+.TP
+.SH STANDARD OPTIONS
+.PP
+.TP
+\-v (\--version)
+Print the version and exit.
+.TP
+\-h (\--help)
+Print the help screen and exit.
+.PP
+.SH FILES
+.PP
+The available files are:
+.PP
+.TP
+\fBARPON_ETC\fR
+.br
+The configuration file contains the configuration data of ArpON and it is used when run the SARPI or HARPI anti ARP spoofing technique, for the specification in the ARP cache only for all the static entries matching the specified network interface (or that matching the several specified network interfaces if run concurrently several daemons of ArpON for different network interfaces). This file should be writable by root only but it is recommended (though not necessary) that it be world-readable.
+.TP
+\fBARPON_LOG\fR
+.br
+The log file contains the log data of ArpON. If there are several daemons of ArpON running concurrently for different network interfaces, this contains the log data of all the daemons of ArpON. This file should be readable only by root, and need not be readable by anyone else.
+.TP
+\fBARPON_PID\fR
+.br
+The pid file contains the process ID of ArpON. If there are several daemons of ArpON running concurrently for different network interfaces, this contains the process ID of the one started last. The content of this file is not sensitive; it can be world-readable.
+.Ve
+.PP
+.SH EXAMPLES
+.PP
+These examples shows how to use all three kinds of anti ARP spoofing techniques.
+.PP
+In the same host, we have three network interfaces with different subnet classes and we would set the ARP cache for all the static and dynamic entries matching the eth0, wlan0 and eth1 network interfaces. This scenario requires the run concurrently of three daemons of ArpON:
+.PP
+.TP
+.SH SARPI 'STATIC ARP INSPECTION' EXAMPLE
+.PP
+The eth0 network interface has the 192.168.1.2/24 IP address. We have only three static entries of the ARP cache:
+.PP
+1) 192.168.1.1 at 58:ac:78:10:b9:77;
+.br
+2) 192.168.1.3 at d4:be:d9:fe:8b:45;
+.br
+3) 192.168.1.4 at 90:94:e4:bb:1c:10.
+.PP
+and we have no dynamic entries of the ARP cache. This is the ideal case where we have to use the SARPI anti ARP spoofing technique, therefore specify in the configuration file of the ARP cache only all the static entries matching the eth0 network interface:
+.PP
+\&       $ sudo nano ARPON_ETC
+.PP
+Therefore:
+.PP
+.Vb 13
+\&       #
+\&       # ArpON configuration file.
+\&       #
+\&       # See the arpon(8) man page for details.
+\&       #
+\&
+\&       #
+\&       # Static entries matching the eth0 network interface:
+\&       #
+\&       # First static entry:
+\&       192.168.1.1     58:ac:78:10:b9:77
+\&       # Second static entry:
+\&       192.168.1.3     d4:be:d9:fe:8b:45
+\&       # Third static entry:
+\&       192.168.1.4     90:94:e4:bb:1c:10
+.Ve
+.PP
+Daemonize the ArpON and run SARPI anti ARP spoofing technique on the eth0 network interface:
+.PP
+\&       $ sudo arpon -d -i eth0 -S
+.PP
+Read the log file:
+.PP
+\&       $ sudo tail -f ARPON_LOG
+.PP
+Read the pid file:
+.PP
+\&       $ cat ARPON_PID
+.PP
+.TP
+.SH DARPI 'DYNAMIC ARP INSPECTION' EXAMPLE
+.PP
+The wlan0 network interface has the 172.16.1.2/24 IP address. We have no static entries of the ARP cache, and we have only dynamic entries of the ARP cache. This is the ideal case where we have to use the DARPI anti ARP spoofing technique, therefore daemonize the ArpON and run DARPI anti ARP spoofing technique on the wlan0 network interface:
+.PP
+\&       $ sudo arpon -d -i wlan0 -D
+.PP
+Read the log file:
+.PP
+\&       $ sudo tail -f ARPON_LOG
+.PP
+Read the pid file:
+.PP
+\&       $ cat ARPON_PID
+.PP
+.TP
+.SH HARPI 'HYBRID ARP INSPECTION' EXAMPLE
+.PP
+The eth1 network interface has the 10.0.1.2/16 IP address. We have only two static entries of the ARP cache:
+.PP
+1) 10.0.1.1 at 58:ac:78:88:1a:bb;
+.br
+2) 10.0.10.1 at 90:94:e4:7e:f4:59.
+.PP
+and we have the rest of entries as dynamic entries of the ARP cache. This is the ideal case where we have to use the HARPI anti ARP spoofing technique, therefore specify in the configuration file of the ARP cache only all the static entries matching the eth1 network interface:
+.PP
+\&       $ sudo nano ARPON_ETC
+.PP
+Therefore:
+.PP
+.Vb 13
+\&       #
+\&       # ArpON configuration file.
+\&       #
+\&       # See the arpon(8) man page for details.
+\&       #
+\&
+\&       #
+\&       # Static entries matching the eth0 network interface:
+\&       #
+\&       # First static entry:
+\&       192.168.1.1     58:ac:78:10:b9:77
+\&       # Second static entry:
+\&       192.168.1.3     d4:be:d9:fe:8b:45
+\&       # Third static entry:
+\&       192.168.1.4     90:94:e4:bb:1c:10
+\&
+\&       #
+\&       # Static entries matching the eth1 network interface:
+\&       #
+\&       # First static entry:
+\&       10.0.1.1        58:ac:78:88:1a:bb
+\&       # Second static entry:
+\&       10.0.10.1       90:94:e4:7e:f4:59
+.Ve
+.PP
+Daemonize the ArpON and run HARPI anti ARP spoofing technique on the eth1 network interface:
+.PP
+\&       $ sudo arpon -d -i eth1 -H
+.PP
+Read the log file:
+.PP
+\&       $ sudo tail -f ARPON_LOG
+.PP
+Read the pid file:
+.PP
+\&       $ cat ARPON_PID
+.Ve
+.PP
+.SH DOCUMENTATION
+.TP
+Please see also the documentation file:
+.PP
+\&       \fBARPON_DOC\fR
+.PP
+It contains the retrieving tutorial; the building tutorial; the installation tutorial; the user tutorial with many examples and scenarios; the development tutorial with the Activity diagrams of the SARPI, DARPI and HARPI anti ARP spoofing technique and with modular source code well commented; the bug report tutorial that takes you step-by-step through all of the features of ArpON.
+.Ve
+.PP
+.SH DEVELOPMENT AND BUGS
+.TP
+Please send questions, desirable enhancements, patch, source code contributions, problems, bugs, etc... to author or via the Bug tracking system, as specified in the documentation file specified above and in the official website:
+.PP
+\&       http://arpon.sourceforge.net
+.Ve
+.PP
+.SH AUTHOR
+.TP
+ArpON was writen by Andrea Di Pasquale aka "spikey" <spikey.it@gmail.com>.
+.Ve
+.PP
+.SH COPYRIGHT AND LICENSING
+.PP
+Copyright (C) 2008-2016 Andrea Di Pasquale <spikey.it@gmail.com>
+.br
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR OR HIS RELATIVES BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF MIND, USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+THE POSSIBILITY OF SUCH DAMAGE.
+.Ve
+.PP
+.SH NOTES
+.PP
+The ArpON daemon is completely compatible with the ARP standardized protocol as described in these official RFC documents:
+.PP
+1. \fBRFC 826\fR:
+.br
+\&       http://tools.ietf.org/html/rfc826
+.PP
+2. \fBRFC 2131\fR:
+.br
+\&       http://tools.ietf.org/html/rfc2131
+.PP
+3. \fBRFC 3927\fR:
+.br
+\&       http://tools.ietf.org/html/rfc3927
+.PP
+4. \fBRFC 5227\fR:
+.br
+\&       http://tools.ietf.org/html/rfc5227
+.PP
+The ArpON daemon sets the arp_ignore and the arp_accept fundamental kernel network parameters via the sysctl interface as described in this official kernel document:
+.PP
+1. \fBIP sysctl\fR:
+.br
+\&       http://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+.RE
+
+.\"
+.\" EOF
+.\"
