@@ -75,11 +75,12 @@ env_audit(char **argv, char **envp)
         }
 
         /* Root user? */
-        if (getuid() != ENV_ROOTUID || getgid() != ENV_ROOTGID) {
-            /* Print the info message and exit. */
-            INFO("You don't have permission to run.");
-            exit(EXIT_FAILURE);
-        }
+        // Commented out to allow for non-root permision setting
+        // if (getuid() != ENV_ROOTUID || getgid() != ENV_ROOTGID) {
+        //    /* Print the info message and exit. */
+        //    INFO("You don't have permission to run.");
+        //    exit(EXIT_FAILURE);
+        //}
 
         MSG_DEBUG("Audit environment successful");
 
