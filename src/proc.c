@@ -93,6 +93,7 @@ static char *proc_get(int *value);
 static void  proc_setprocfs(char *path, int value, bool ignore);
 static void  proc_loadfile(const char *file);
 static int   proc_getprocfs(char *path);
+static int   proc_readprocfs(char *path);
 static void  proc_put(char *path, int value);
 static void  proc_setvalues(void);
 
@@ -257,6 +258,12 @@ proc_setprocfs(char *path, int value, bool ignore)
             exit(EXIT_FAILURE);
         }
 
+        /* Determine if the write must be done; Important for running in restricted security contexts */
+        if (proc_readprocfs(path) == value) {
+            MSG_DEBUG("%s already set to %d", path, value);
+            return;
+        }
+
         /* Open the proc file stream to write. */
         if ((file = fopen(path, "w")) == NULL)
             break;
@@ -344,7 +351,6 @@ proc_getprocfs(char *path)
 
     do {
         struct stat stats;
-        FILE *file = NULL;
         int value;
 
         /* Check if the proc path file exist. */
@@ -357,6 +363,28 @@ proc_getprocfs(char *path)
             exit(EXIT_FAILURE);
         }
 
+        value = proc_readprocfs(path);
+
+        MSG_DEBUG("Get %d value from %s proc file successful", value, path);
+
+        return value;
+    } while (0);
+
+    MSG_ERROR("%s", strerror(errno));
+    exit(EXIT_FAILURE);
+}
+
+/*
+ * Read the value of the specified procfs file from the file system
+ * Assumes the file exists
+ */
+static int
+proc_readprocfs(char *path)
+{
+    do {
+        FILE *file = NULL;
+        int value;
+
         /* Open the proc file stream to read. */
         if ((file = fopen(path, "r")) == NULL)
             break;
@@ -368,8 +396,6 @@ proc_getprocfs(char *path)
         /* Close the proc file stream. */
         if (fclose(file) == EOF)
             break;
-
-        MSG_DEBUG("Get %d value from %s proc file successful", value, path);
 
         return value;
     } while (0);
